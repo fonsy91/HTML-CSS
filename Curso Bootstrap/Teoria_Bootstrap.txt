@@ -1,0 +1,235 @@
+TEORIA BOOTSTRAP
+
+https://www.youtube.com/watch?v=31ouw2NNVVM&list=PLZ2ovOgdI-kUmz8-r2DNigQ_qwpk1s5q4&index=5
+************************************************************************************
+
+- Incluir bootstrap en un proyecto: 
+
+Se debe agregar en el head los enlaces tanto de CSS como de JS son: 
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+************************************************************************************
+- Responisve Container:
+
+<div class="container-sm">100% wide until small breakpoint</div>
+<div class="container-md">100% wide until medium breakpoint</div>
+<div class="container-lg">100% wide until large breakpoint</div>
+<div class="container-xl">100% wide until extra large breakpoint</div>
+<div class="container-xxl">100% wide until extra extra large breakpoint</div>
+
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+  xxl: 1320px
+);
+
+Esto quiere decir que por ejemplo: container-sm ocupa el 100% del ancho mientras la pantalla 
+sea mas pequeña que sm (540) cuando la pantalla pasa de 540 se comporta como un "container". Para
+el resto de medidas pasa la mismo. 
+
+************************************************************************************
+- Atajos indispensables para Bootstrap
+
+
+🟥 1. ESPACIADOS (margin y padding)
+
+Formato:
+{m|p}{side}-{size}
+
+🔸 m = margin
+🔸 p = padding
+
+Lados:
+
+t = top
+b = bottom
+s = start (izquierda en LTR)
+e = end (derecha en LTR)
+x = ejes horizontal (izquierda + derecha)
+y = eje vertical (arriba + abajo)
+(sin letra) = todos los lados
+
+Tamaños (0–5):
+
+0 → 0
+1 → 0.25rem
+2 → 0.5rem
+3 → 1rem
+4 → 1.5rem
+5 → 3rem
+auto (solo para margin)
+
+Ejemplos:
+
+mt-3 → margin top 1rem
+p-2 → padding general 0.5rem
+mx-auto → margen horizontal automático
+ps-4 → padding-left 1.5rem
+
+🟦 2. GRID: Columnas (col)
+
+Formato:
+col-{breakpoint}-{número}
+
+Breakpoints:
+
+sm → ≥ 576px
+md → ≥ 768px
+lg → ≥ 992px
+xl → ≥ 1200px
+xxl → ≥ 1400px
+
+Ejemplos:
+
+col-12
+col-md-6
+col-lg-4
+col-sm-3 col-md-4 col-lg-6
+
+Otras utilidades de grid:
+
+row → fila
+g-3 → gap general
+gx-2 → gap horizontal
+gy-4 → gap vertical
+
+🟩 3. DISPLAY (visibilidad/forma de mostrar)
+
+Formato:
+d-{value}
+d-{breakpoint}-{value}
+
+Valores:
+
+none
+block
+inline
+inline-block
+flex
+inline-flex
+grid
+
+Ejemplos:
+
+d-none
+d-block d-md-none
+d-flex
+d-lg-flex d-sm-block
+
+🟧 4. FLEXBOX
+
+Siempre prefijos con d-flex para empezar.
+
+Direcciones:
+
+flex-row
+flex-row-reverse
+flex-column
+flex-column-reverse
+
+Justify-content:
+
+justify-content-start
+justify-content-center
+justify-content-end
+justify-content-between
+justify-content-around
+justify-content-evenly
+
+Align-items:
+
+align-items-start
+align-items-center
+align-items-end
+
+Align-self:
+
+align-self-start
+align-self-center
+align-self-end
+
+Flex wrap:
+
+flex-wrap
+flex-nowrap
+flex-wrap-reverse
+
+Flex grow/shrink:
+
+flex-grow-1
+flex-shrink-0
+
+🟫 5. TAMAÑOS (width / height)
+
+Widths:
+
+w-25
+w-50
+w-75
+w-100
+w-auto
+
+Heights:
+
+h-25
+h-50
+h-75
+h-100
+h-auto
+
+Viewport:
+
+vw-100
+vh-100
+
+🟪 6. POSITIONS
+
+position-static
+position-relative
+position-absolute
+position-fixed
+position-sticky
+
+Helpers:
+
+top-0, top-50, top-100
+bottom-0
+start-0
+end-0
+
+🟨 7. FLOATS
+
+float-start
+float-end
+float-none
+
+Con breakpoint:
+float-md-end, float-lg-start, etc.
+
+🟤 8. TEXTOS Y ALINEACIÓN
+
+text-start
+text-center
+text-end
+
+Responsive:
+text-md-center, text-lg-end
+
+🔵 9. VISIBILITY & RESPONSIVE
+
+visible
+invisible
+d-none
+d-sm-block (visible en sm+)
+d-lg-none (oculto en lg+)
+
+
+
+
+
+************************************************************************************
+
+Video 9 minuto empezar

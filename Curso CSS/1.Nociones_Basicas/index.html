@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+
+   <link rel="stylesheet" href="estilos.css">
+
+   <!--Bootstrap-->
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+   <!-- Google Fonts -->
+   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+   <!-- Estilo interno -->
+   <style>
+      body {
+         font-family: 'Roboto', sans-serif;
+         /* Aplica Roboto a todo el contenido */
+      }
+
+      .titulo {
+         font-family: 'Roboto', sans-serif;
+         font-weight: 700;
+         /* negrita */
+         color: #0d6efd;
+         /* color azul de Bootstrap */
+      }
+
+      .contenido {
+         font-family: 'Roboto', sans-serif;
+         font-weight: 400;
+         /* normal */
+      }
+   </style>
+
+   <!-- Prism CSS -->
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+
+   <!-- Prism JS -->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup.min.js"></script>
+
+   <!--URL CURSO-->
+   <!--https://lenguajecss.com/css-->
+
+</head>
+
+<body>
+
+   <div class="container py-4">
+      <h1>UNIDADES CSS</h1>
+      <div class="py-4">
+         <img class="img-fluid rounded w-50 h-50" src="../imagenes/unidades.PNG" alt="">
+      </div>
+
+
+      <div>
+         <h4 class="text-primary">- Unidades absolutas</h4>
+         <p class="ms-3">
+            Las unidades absolutas son un tipo de medida fija que no cambia, que no depende de ningún otro factor. Son
+            ideales en contextos donde las medidas no varían como pueden ser en medios impresos (documentos,
+            impresiones,
+            etc...), pero son unidades poco adecuadas para la web moderna, donde necesitamos adaptarnos a diferentes
+            resoluciones o pantallas.
+            No obstante, para comenzar, existe una unidad absoluta recomendable, que nos puede servir para dar nuestros
+            primeros pasos en el Desarrollo web y ayudarnos a afianzar conocimientos, y así en el futuro, progresar y
+            aprender de forma más rápida otras unidades CSS.
+         </p>
+      </div>
+
+
+      <h4 class="text-primary">- Unidades relativas</h4>
+      <p class="ms-3">
+         Las unidades relativas son un tipo de medida mucho más potente y habitual en el CSS que creamos generalmente.
+         Al contrario que las unidades absolutas, las unidades relativas dependen de algún otro factor (elemento padre,
+         tamaño de letra, interlineado, etc...).
+         Tienen una curva de aprendizaje más compleja, pero son ideales para trabajar en dispositivos con diferentes
+         tamaños, ya que son muy flexibles y versátiles y bien utilizadas pueden ahorrar trabajo de desarrollo.
+      </p>
+
+      <h4 class="text-primary">- Unidades del viewport</h4>
+      <p class="ms-3 pb-4">
+         No funciona la pagina
+      </p>
+
+
+      <h1>VARIABLES CSS</h1>
+      <p class="ms-3">
+         Las CSS Custom Properties (conocidas como variables CSS) son un mecanismo de CSS que permite dar un valor
+         personalizado a las propiedades CSS. El objetivo principal es evitar escribir múltiples veces un mismo valor, y
+         en su lugar, ponerle un nombre más lógico, semántico y fácil de recordar, que hará referencia al valor real.
+         <br><br>
+         Para crear una custom property haremos uso de los dos guiones -- como prefijo al nombre que vamos a utilizar.
+         En este caso, hemos creado una variable CSS llamada --background-color, al que le hemos asignado el valor
+         black, que es un color:
+      </p>
+
+      <pre><code class="language-css">
+         :root {
+            --background-color: black;
+            --color-principal: #fff;
+            --fondo: black;
+         }
+
+         // Uso de la variable
+
+         button {
+            color: var(--color-principal);
+            background: var(--background-color);
+         }
+      </code></pre>
+
+      <h1 class="">MODELO DE CAJAS</h1>
+      <p class="ms-3">
+         Cuando hablamos del modelo de cajas en CSS, estamos haciendo referencia a un sistema que tiene el navegador de
+         interpretar las diferentes partes de lo que solemos denominar «caja»: un elemento HTML con unas ciertas
+         dimensiones. <br><br>
+
+         La representación básica del modelo de cajas se basa en varios conceptos importantes, como veremos a
+         continuación:
+      </p>
+      <ul>
+         <li>El borde (border), en negro, es el límite que separa el interior del exterior del elemento.</li>
+         <li>El márgen (margin), en naranja, es la parte exterior del elemento, por fuera del borde.</li>
+         <li>El relleno (padding), en verde, es la parte interior del elemento, entre el contenido y el borde.</li>
+         <li>El contenido, en azul, es la parte interior del elemento, excluyendo el relleno.</li>
+      </ul>
+      <div class="py-4">
+         <img class="img-fluid rounded w-50 h-50" src="../imagenes/caja.PNG" alt="">
+      </div>
+      <p class="ms-3">
+         Otro detalle que merece la pena destacar, y que sorprende mucho en el aprendizaje del modelo de cajas de CSS,
+         es el llamado «margin collapse» o colapso de márgenes.
+
+         Como veremos más adelante, CSS tiene varios mecanismos de maquetación. Los más básicos son inline y block, y en
+         ellos, ocurre la siguiente situación. Imaginemos que tenemos dos elementos adyacentes, y cada uno de ellos,
+         tiene un margen de 20px definido.
+
+         Quizás, lo más intuitivo es pensar que que el elemento de la izquierda tiene 20px de margen derecho, mientras
+         que el elemento de la derecha tiene 20px de margen izquierdo, que al sumarse, predecimos que resultará un
+         tamaño de 40px. Sin embargo, la realidad es distinta:
+      </p>
+      <div class="py-4">
+         <img class="img-fluid rounded w-50 h-50" src="../imagenes/colapse.PNG" alt="">
+      </div>
+      <p class="ms-3">
+         El <strong>margin collapse</strong> es una situación que ocurre en estos modelos de maquetación básica, donde
+         los márgenes de
+         dos elementos se colapsan, ocupando el mismo tamaño una sola vez. En el ejemplo anterior, ocupa sólo esos 20px,
+         en lugar de los 40px de la suma del margen de cada caja.
+         En modelos de maquetación avanzados como flex o grid no se aplica el «margin collapse», ya que es algo que sólo
+         afecta a modelos básicos como inline o block.
+      </p>
+      <h4 class="text-primary">- Dimensiones en CSS</h4>
+      <p class="ms-3 pb-4">
+         Al trabajar con CSS, una de las primeras cosas que debemos aprender es la de dar tamaño o establecer
+         dimensiones a un elemento HTML. Es algo relativamente sencillo, pero que se puede complicar mucho y que tiene
+         muchos matices y aspectos a tener en cuenta.
+         Para dar tamaños específicos a los diferentes elementos de un documento HTML, necesitaremos asignarles valores
+         a las propiedades width (ancho) y height (alto), a los cuales se les da un tamaño con unidades CSS el primer
+         titulo
+         del documento también admite valor auto: <br><br>
+
+         En el caso de indicar el valor auto, el navegador se encargará de darle el tamaño que considere más apropiado,
+         dependiendo de su contenido. Ten en cuenta que este valor es el que tienen por defecto estas propiedades. De no
+         indicar un valor concreto, width y height tendrán el valor auto.
+      </p>
+      <h4 class="text-primary">- Rangos de dimensiones</h4>
+      <p class="ms-3 pb-4">
+         Otra forma de lidiar con esto, es utilizar las propiedades hermanas de width: por un lado, min-width y
+         max-width y por otro, sus equivalentes de height: min-height y max-height. Con estas propiedades, en lugar de
+         establecer un tamaño fijo, establecemos unos rangos máximos y mínimos, donde el ancho o alto podría variar
+         entre esos valores:
+      </p>
+      <pre><code class="language-css">
+         div {
+            width: 100%;
+            min-width: 300px;
+            max-width: 800px;
+            height: 200px;
+            background: red;
+         }
+      </code></pre>
+      <p class="ms-3 pb-4 py-4">
+         En este caso, puedes probar a redimensionar la ventana de demostración (esquina inferior-derecha). Hemos
+         definido un tamaño máximo de ancho de 800px, y un mínimo de 300px. A la misma vez, le aplicamos un width de
+         100% para que intente ocupar el máximo posible, siempre respetando los límites anteriores: nunca superará los
+         800px y nunca será más pequeño de los 300px.
+
+         Como resultado, el cuadrado será flexible y se irá haciendo más pequeño hasta llegar a su límite inferior,
+         donde aparecerá la barra de desplazamiento inferior. Ojo: Las propiedades de mínimos min-width y min-height por
+         defecto tienen valor 0, mientras que las propiedades de máximos max-width y max-height, tienen por defecto
+         valor none.
+      </p>
+      <h4 class="text-primary">- DESBORDAMINETO (OVERFLOW)</h4>
+      <p class="ms-3">
+         Como vimos en el artículo anterior, si tenemos suficiente contenido en un elemento y hemos forzado el tamaño de
+         ancho y/o alto del elemento para que tenga un tamaño específico (que es más pequeño que su contenido), se va a
+         producir el caso en el que su contenido no tiene suficiente espacio, por lo que se producirá un desbordamiento
+         CSS: Para controlar estos casos, tenemos a nuestra disposición la propiedad overflow en CSS, donde podremos
+         definir
+         el comportamiento adecuado. overflow-x (horizontal) , overflow-y (vertical), overflow ([overflow-x]
+         [overflow-y]) para ambos.
+      </p>
+      <div class="">
+         <img class="img-fluid rounded w-50 h-50" src="../imagenes/overflow.PNG" alt="">
+      </div>
+      <h4 class="text-primary mt-4">- PROPIEDAD BOX-SIZING</h4>
+      <p class="ms-3">
+         Por defecto, el modelo de cajas de CSS sigue un esquema donde al dar un tamaño a un elemento, concretamente se
+         le da tamaño a su contenido (rosa, en la imagen). Sin embargo, si además le añadimos un borde (border) y/o un
+         relleno (padding), se sumará al tamaño del contenido.
+      </p>
+      <div class="py-4">
+         <img class="img-fluid rounded w-25 h-25" src="../imagenes/box-sizing.PNG" alt="">
+      </div>
+      <p class="ms-3">
+         Esto puede resultar algo poco intuitivo, ya que un elemento al que le demos un tamaño width: 200px, y que
+         además tenga un border: 15px y un padding: 20px, resultaría en realidad un elemento de tamaño total de 270px.
+         ¿Cuál es la razón?
+      </p>
+      <ul>
+         <li>15px de borde izquierdo</li>
+         <li>15px de borde derecho</li>
+         <li>20px de relleno izquierdo</li>
+         <li>20px de relleno derecho</li>
+         <li>200px del ancho del contenido</li>
+      </ul>
+      <p class="ms-3">
+         En CSS, existe una propiedad denominada box-sizing que permite alterar esta versión del modelo de cajas. Lo
+         explicado en el ejemplo anterior es el funcionamiento por defecto del modelo de cajas de CSS, donde la
+         propiedad box-sizing tiene el valor content-box. Sin embargo, tiene disponible otro valor denominado border-box
+         donde se puede cambiar el comportamiento de este modelo de cajas por uno simplificado donde el tamaño del
+         border y del padding están incluídos en el tamaño del contenido dados por propiedades como width o height.
+      </p>
+      <h4 class="text-primary">- MARGENES Y RELLENOS</h4>
+      <p class="ms-3">
+         Recordemos que en el modelo de cajas, los márgenes (margin) son los espacios exteriores de un elemento,
+         mientras que los rellenos (padding) son los "márgenes internos" de un elemento. Es decir, el espacio que hay
+         entre el borde de un elemento y su exterior (margen) o el borde de un elemento y su interior (padding).
+         <br><br>
+         Existe un truco muy sencillo y práctico para centrar horizontalmente un elemento en pantalla. Basta con aplicar
+         un ancho fijo al contenedor: width: 500px (por ejemplo) y luego aplicar un margin: auto. De esta forma, el
+         navegador, al conocer el tamaño del elemento (y por omisión, el resto del tamaño de la ventana) se encarga de
+         repartirlo equitativamente entre el margen izquierdo y el margen derecho, quedando centrado el elemento.
+         <strong>margin-top, margin-left, margin-right, margin-bottom.</strong> <br><br>
+         Al igual que con los márgenes, los padding tienen varias propiedades para indicar el relleno de cada zona:
+         por defecto no hay relleno (el relleno está a cero). <strong>padding-top, padding-left, padding-right,
+            padding-bottom.</strong>
+      </p>
+      <h4 class="text-primary">- PROPIEDADES LÓGICAS CSS</h4>
+      <p class="ms-3">
+         El primer cambio que hay que tener claro, es que en el futuro no hablaremos de ancho (width) y alto (height) de
+         los elementos, sino de un concepto algo más abstracto. Ahora debemos tener en cuenta que los conceptos «en
+         linea** (inline) y en bloque (block), van a reemplazar los anteriores.
+         Cuando antes hablabamos de ancho, ahora estaremos hablando de espacio en dirección «en línea», mientras que lo
+         que antes denominábamos alto, ahora es espacio en dirección «en bloque». A priori, puede parecer lioso, pero la
+         idea es simplificarlo globalmente, incluyendo todos los idiomas y su forma de escritura o dirección. Es decir
+         estas propiedades estan cuando quieres que una pagina tenga la posibilidad de observarse en cualquier idioma
+         del
+         mundo como el arabe, japones, chino etc.. ya que su escritura es diferente de derecha a izquierda,
+         verticalemente.
+      </p>
+      <div class="py-4 d-flex justify-content-between gap-3">
+         <img class="img-fluid rounded w-50 h-50" src="../imagenes/propLogicas.PNG" alt="">
+         <img class="img-fluid rounded w-50 h-50" src="../imagenes/propLogicas2.PNG" alt="">
+      </div>
+
+      <h1 class="">SELECTORES CSS</h1>
+      <p class="ms-3">
+         Como su mismo nombre indica, un selector CSS es una referencia a uno o varios elementos HTML, escrito
+         generalmente desde código CSS (también pueden utilizarse desde ciertos lugares en Javascript). Es una forma
+         rápida y cómoda de hacer referencia a elementos individuales o grupos de elementos, para posteriormente darles
+         estilo.
+      </p>
+      <h4 class="text-primary">- SELECTORES BÁSICOS</h4>
+      <div class="">
+         <img class="img-fluid rounded w-75 h-50" src="../imagenes/selectores.PNG" alt="">
+      </div>
+      <h4 class="text-primary mt-4">- SELECTORES DE ATRIBUTO</h4>
+      <p class="ms-3">
+         Hasta ahora, hemos visto una forma rápida y extendida de hacer esto para atributos muy conocidos como id o
+         class, a través de #nombre o .nombre, respectivamente. Sin embargo, podríamos querer hacer esto, pero no para
+         los atributos class o id, sino para otros atributos diferentes: como puede ser disable.
+      </p>
+      <pre><code class="language-css">
+         button { }            /* Selecciona todos los botones */
+         button[disabled] { }  /* Botón con atributo disabled */
+         [disabled] { }        /* Cualquier elemento con atributo disabled */
+      </code></pre>
+      <h4 class="text-primary mt-4">- COMBINADORES</h4>
+      <p class="ms-3">
+         Un combinador CSS es un símbolo que permite combinar dos o más selectores CSS, formando uno más complejo y
+         potente. Existen varios combinadores en CSS, que mostraremos en la siguiente tabla:
+      </p>
+      <div class="">
+         <img class="img-fluid rounded w-75 h-50" src="../imagenes/combinadores.PNG" alt="">
+      </div>
+      <h4 class="text-primary mt-4">- PSEUDOCLASE CSS</h4>
+      <p class="ms-3">
+         Las pseudoclases se utilizan para hacer referencia a elementos HTML que tengan un cierto comportamiento
+         concreto. Volvamos a recordar el esquema general de sintaxis de CSS, donde ahora añadiremos las pseudoclases,
+         que se definen añadiendo dos puntos antes del nombre de la pseudoclase concreta.
+         La forma de utilizar pseudoclases en nuestro código CSS es, simplemente, añadir : tras la etiqueta o selector y
+         luego añadir el nombre de la pseudoclase. Por ejemplo, una de las pseudoclases más populares, que veremos en el
+         próximo artículo, es :hover.
+      </p>
+      <h5 class="text-gray mt-4">- PSEUDOCLASES DE ITERACCIÓN</h5>
+      <p class="ms-3">
+         Las pseudoclases de interacción se pueden utilizar en cualquier elemento, aunque lo más frecuente es usarlo en
+         elementos interactivos como enlaces, botones o similares, y pueden seleccionar elementos cuando ocurre una
+         cierta interacción por parte del usuario en ellos. ¿Qué tipo de interacción es esa? Pueden ser varias:
+      </p>
+      <div class="">
+         <img class="img-fluid rounded w-75 h-50" src="../imagenes/pseudoclases.PNG" alt="">
+      </div>
+      <p class="ms-3 mt-4">
+         Hay muchos mas tipos de pseudoclases pero las principales y para esta teoria son suficientes si quieres ver mas
+         aqui:
+         <a href="https://lenguajecss.com/css/pseudoclases/que-son/" class="">Ir a la página</a>
+      </p>
+
+      <h1 class="">TIPOGRAFÍA CSS</h1>
+      <p class="ms-3">
+         Las tipografías (también denominadas fuentes) son una parte muy importante del mundo de CSS. De hecho, son uno
+         de los pilares del diseño web. La elección de una tipografía adecuada, su tamaño, color, espacio entre letras,
+         interlineado y otras características pueden dotar de una parte fundamental, de forma consciente o inconsciente,
+         en la percepción en la que una persona interpreta o accede a los contenidos de una página.
+      </p>
+      <h4 class="text-primary mt-4">- BASES DE FUENTES Y TIPOGRAFICAS</h4>
+      <p class="ms-3">
+         Existe un amplio abanico de propiedades CSS para modificar las características básicas de las tipografías a
+         utilizar. Aunque existen muchas más, a continuación, veremos las propiedades CSS principales y más básicas para
+         establecer en un texto:
+      </p>
+      <div class="">
+         <img class="img-fluid rounded w-75 h-50" src="../imagenes/tipografica.PNG" alt="">
+      </div>
+      <h4 class="text-primary mt-4">- AJUSTE Y BALANCE DE TEXTOS</h4>
+      <p class="ms-3">
+         Existen situaciones donde podemos necesitar modificar la forma en la que se renderiza el texto en los elementos
+         contenedores de nuestra página. La forma en la que el navegador ajusta el texto para adaptarse al contenedor,
+         no siempre es la ideal, por lo que la siguiente propiedad nos puede venir muy bien.
+      </p>
+      <div class="">
+         <img class="img-fluid rounded w-75 h-50" src="../imagenes/balaceText.PNG" alt="">
+      </div>
+      <h4 class="text-primary mt-4">- TEXTO Y ALINEACIONES</h4>
+      <p class="ms-3">
+         Cuando estamos escribiendo mucho texto en nuestros elementos, es posible que necesitemos alinear los textos,
+         para colocarlos de una forma específica: texto a la izquierda, texto a la derecha, texto centrado, etc... Para
+         ello, utilizaremos las siguientes propiedades CSS:
+      </p>
+      <div class="py-4 d-flex justify-content-between gap-3">
+         <img class="img-fluid rounded w-50 h-50" src="../imagenes/alineacionText.PNG" alt="">
+         <img class="img-fluid rounded w-50 h-50" src="../imagenes/alineacoinText2.PNG" alt="">
+      </div>
+
+      <h1 class="">LAYOUTS</h1>
+      <h4 class="text-primary mt-4">- MAQUETACIÓN</h4>
+      <p class="ms-3">
+         Probablemente, una de las partes más complejas de CSS sea la creación de layouts, colocación y distribución de
+         los elementos a lo largo de una página, y sin duda el que más le cuesta a los desarrolladores que están
+         comenzando. Sin embargo, es una parte fundamental dentro de CSS, y es necesario entenderla correctamente para
+         que resulte más fácil de trabajar y crear nuestros diseños.
+
+         Para establecer estos mecanismos básicos de layout se utiliza una propiedad llamada display que, aunque no la
+         estemos utilizando explícitamente, está actuando por omisión. Vamos a aprender de que se trata.
+      </p>
+      <h5 class="text-gray mt-4">- LA PROPIEDAD DISPLAY</h5>
+      <p class="ms-3">
+         Probablemente, una de las partes más complejas de CSS sea la creación de layouts, colocación y distribución de
+         los elementos a lo largo de una página, y sin duda el que más le cuesta a los desarrolladores que están
+         comenzando. Sin embargo, es una parte fundamental dentro de CSS, y es necesario entenderla correctamente para
+         que resulte más fácil de trabajar y crear nuestros diseños.
+
+         Para establecer estos mecanismos básicos de layout se utiliza una propiedad llamada display que, aunque no la
+         estemos utilizando explícitamente, está actuando por omisión. Vamos a aprender de que se trata.
+         Por defecto, y aunque no lo sepamos, todos los elementos HTML tienen una forma de comportarse a la hora de
+         renderizarse (dibujarse) en el navegador. <br><br> Algunos elementos HTML como
+         (div o p) actuan de una forma, y otros elementos como (a o span) de otra forma diferente. Esto tiene una razón
+         de ser, y la explicaremos un poco más adelante. Como hemos mencionado, aunque no lo hagamos explícitamente,
+         todos los elementos HTML tienen una forma de representarse. Pero esa forma puede cambiarse a través de la
+         propiedad CSS display, indicandole un tipo de representación concreta:
+      </p>
+      <pre><code class="language-css">
+         div {
+            display: block;   /* Valor por defecto en los div */
+         }
+      </code></pre>
+      <div class="mt-4">
+         <img class="img-fluid rounded w-75 h-50" src="../imagenes/maquetacion.PNG" alt="">
+      </div>
+      <h6 class="text-gray mt-4">- INLINE</h6>
+      <p class="ms-3 mt-4">
+         Como norma general (con excepciones) los elementos que se utilizan dentro de un párrafo, son de tipo inline,
+         los elementos se alinean uno detrás de otro (en horizontal). Su tamaño o dimensiones se adaptan al de su
+         contenido. Aunque uses width o height, se ignora y no cambia tamaño. <br><br>
+         Por ejemplo, todos los elementos span o strong se
+         comportan como elementos en línea (inline), mientras que los elementos div por defecto se comportan como
+         elementos en bloque uno encima de otro.
+      </p>
+      <h6 class="text-gray mt-4">- BLOCK</h6>
+      <p class="ms-3 mt-4">
+         Por su parte, los elementos que se utilizan para agrupar otros elementos HTML, por norma general, son de tipo
+         block. Este tipo de elementos se caracteriza por lo siguiente: Los elementos se apilan uno encima de otro (en
+         vertical).
+         Por defecto, usa todo el ancho (en horizontal) disponible. Si usas width o height, obedece y cambia el tamaño
+         del elemento.
+      </p>
+      <h6 class="text-gray mt-4">- INLINE BLOCK</h6>
+      <p class="ms-3 mt-4">
+         Si utilizamos la propiedad display con el valor inline-block, conseguiremos un elemento que funcionará como si
+         fuera un elemento inline, pero obedeciendo a las propiedades width y height, las cuales se ignoran si estamos
+         utilizando un display: inline. Se trata de una especie de híbrido entre inline y block.
+      </p>
+      <h5 class="text-gray mt-4">- ALINEAR Y CENTRAR CON CSS</h5>
+      <p class="ms-3">
+         Antes de comenzar a aprender a utilizar mecanismos potentes de CSS como Flex o Grid, es conveniente conocer las
+         bases y como podemos centrar o alinear elementos con CSS, sin necesitar utilizar dichos mecanismos. Vamos a
+         aprender
+         a centrar un div sin necesidad de usar flex o grid.
+      </p>
+      <pre><code class="language-css">
+         body {
+            margin: 0;
+            background: black;
+         }
+
+         .container {
+            width: 300px;
+            min-height: 250px;
+            margin: auto;
+            background: indigo;
+            color: white;
+            padding: 2rem;
+         }
+      </code></pre>
+      <pre><code class="language-html">
+         &lt;div class="container"&gt;Alfon, tu streamer de CSS de confianza&lt;/div&gt;
+      </code></pre>
+      <p class="ms-3">
+         al aplicar un margin al elemento. Observa todo el espacio sobrante a su derecha. Al aplicar un margin: auto lo
+         que hacemos es decirle que ese espacio restante lo divida en dos: el primero lo colocará a la izquierda, y el
+         segundo lo colocará a la derecha, y como efecto «colateral» el elemento se centrará en pantalla. <br> <br>
+         Aunque la propiedad align-content aparece por primera vez en contextos de Flex y Grid, recientemente se ha
+         añadido la posibilidad de utilizarla en elementos con display: block, por lo que podemos utilizarla en este
+         caso para centrar verticalmente de forma limpia. <br> <br>
+
+         Por último, nos queda el contenido del elemento. Observa que el texto del interior del elemento no está aún
+         centrado. Esto ocurre porque lo que hemos hecho hasta ahora ha sido sólo para alinear el elemento respecto a su
+         contenedor padre.
+
+         Si queremos hacer lo mismo con su contenido, estaríamos alineando su contenido (hijos) sobre su contenedor
+         padre, el propio elemento. Para hacer esto, la forma más sencilla es aplicar en .container los siguientes
+         estilos: <strong>Utiliza text-align: center para centrar el contenido horizontalmente y
+            Utiliza align-content: center para centrar verticalmente. </strong>
+      </p>
+      <pre><code class="language-css">
+         html {
+            height: 100vh;
+         }
+
+         body {
+            margin: 0;
+            height: 100%;
+            background: black;
+            align-content: center;
+         }
+
+         .container {
+            width: 300px;
+            min-height: 250px;
+            margin: auto;
+            background: indigo;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            align-content: center;
+         }
+      </code></pre>
+      <h4 class="text-primary mt-4">- FLEX CSS</h4>
+      <p class="ms-3">
+         Flex (también llamado flexbox) es un sistema de elementos flexibles que llega con la idea de olvidar mecanismos
+         anticuados y acostumbrarnos a una mecánica más potente, limpia y personalizable, en la que los elementos HTML
+         se adaptan y colocan automáticamente y es mucho más fácil personalizar los diseños de una página web. <br> <br>
+         Para activar el modo flex, utilizaremos sobre el elemento contenedor (padre) la propiedad display, y
+         especificaremos el
+         valor flex o inline-flex (dependiendo de como queramos que se comporte el contenedor):
+      </p>
+      <div class="mt-4">
+         <img class="img-fluid rounded w-75 h-50" src="../imagenes/flex.PNG" alt="">
+      </div>
+      <p class="ms-3 mt-4">
+         En este enlace podras ver todas las propiedades de Flex con ejemplos visuales <a
+            href="https://codepen.io/enxaneta/full/adLPwv/">Ir a la página</a>
+      </p>
+      <h4 class="text-primary mt-4">- ALINEAR Y CENTRAR CON FLEX CSS</h4>
+      <p class="ms-3">
+         Ahora, tras el tema de Introducción a Flex, tenemos un control básico de este sistema de elementos flexibles.
+         Pero el segundo paso es saber como alinearlos o centrarlos.
+      </p>
+      <div class="mt-4">
+         <img class="img-fluid rounded w-75 h-50" src="../imagenes/flex1.PNG" alt="">
+      </div>
+      <h6 class="text-gray mt-4">- JUSTIFY-CONTENT</h6>
+      <p class="ms-3 mt-4">
+         La primera propiedad, justify-content, sirve para colocar los ítems de un contenedor mediante una disposición
+         concreta a lo largo del eje principal (por defecto, en horizontal). Los valores que puede tomar esta propiedad
+         son los siguientes:
+      </p>
+      <div class="mt-4">
+         <img class="img-fluid rounded w-75 h-50" src="../imagenes/flex2.PNG" alt="">
+      </div>
+      <h6 class="text-gray mt-4">- ALIGN-ITEMS</h6>
+      <p class="ms-3 mt-4">
+         Existe otra propiedad importante denominada align-items. Se encarga de alinear los ítems en el eje secundario
+         del contenedor. Hay que tener cuidado de no confundir align-items con align-content, puesto que el segundo
+         actúa sobre cada una de las líneas de un contenedor multilinea (no tiene efecto si no usamos flex-wrap),
+         mientras que align-items lo hace sobre la única línea que tiene un contenedor flex sin wrap.
+      </p>
+      <h6 class="text-gray mt-4">- ALIGN-CONTENT</h6>
+      <p class="ms-3 mt-4">
+         Una vez entendidos los casos anteriores, debemos atender a la propiedad align-content, que es un caso
+         particular de align-items. Nos servirá cuando estemos tratando con un contenedor flex multilinea creado
+         mediante flex-wrap. Los contenedores multilinea son un tipo de contenedor en el que, cuando los ítems no caben
+         en el ancho disponible, el eje principal se divide en múltiples líneas. De esta forma, align-content servirá 
+         para alinear cada una de las líneas del contenedor multilinea
+      </p>
+      <h4 class="text-primary mt-4">- ELEMENTOS FLEXIBLES EN CSS</h4>
+
+
+
+
+
+
+
+
+
+
+   </div>
+
+</body>
+
+</html>

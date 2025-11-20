@@ -1,0 +1,55 @@
+
+/*
+***********************  CURSO CSS  ***********************
+
+Estilos Para selectores.html
+*/
+
+/* 1. Selector de etiqueta (elemento) */
+p {
+    color: blue;
+}
+
+/* 2. Selector de clase */
+.destacado {
+    font-weight: bold;
+    color: green;
+}
+
+ /* 3. Selector de ID */
+ #titulo {
+    font-size: 24px;
+    color: red;
+}
+
+/* 4. Selector universal */
+* {
+    font-family: Arial, sans-serif;
+}
+
+/* 5. Selector de descendencia */
+div p {
+    background-color: lightgray;
+}
+
+/* 6. Selector de hijo directo */
+div > p {
+    border: 2px solid purple;
+}
+
+/* 7. Selector de atributos */
+input[type="text"] {
+    border: 2px solid blue;
+}
+
+ /* 8. Selector de pseudo-clase */
+ a:hover {
+    color: red;
+    text-decoration: underline;
+}
+
+/* 9. Selector de pseudo-elemento */
+p::first-letter {
+    font-size: 2em;
+    color: orange;
+}

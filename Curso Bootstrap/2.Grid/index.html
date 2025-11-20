@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!--Bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>GRID</h1>
+        <p>
+            Para poder usar grid en un div o en un contenido especifico debemos hacer uso
+            de la clase row class= "row". Y dentro de esta clase tenemos que meter tantos div
+            como columnas queramos que tenga, y esos div de dentro hay que darles el nombre de clase
+            "col"
+        </p>
+        <br>
+        <div class="row">
+            <div class="col border">1</div>
+            <div class="col border">2</div>
+            <div class="col border">3</div>
+            <div class="col border">4</div>
+            <div class="col border">5</div>
+            <div class="col border">6</div>
+            <div class="col border">7</div>
+            <div class="col border">8</div>
+            <div class="col border">9</div>
+            <div class="col border">10</div>
+            <div class="col border">11</div>
+            <div class="col border">12</div>
+        </div>
+
+        <div class="row">
+            <div class="col border">a</div>
+            <div class="col border">b</div>
+        </div>
+
+        <div class="row">
+            <div class="col border">c</div>
+            <div class="col border">d</div>
+            <div class="col border">f</div>
+        </div>
+
+        <br>
+        <p>
+            Que ocurre si yo quiero que cada container, imagen, trozo de texto
+            ocupe x columnas por ejemplo: col-1, col-2, col-3, col-6. Si no especificas un numero 
+            el propio grid se dividira solo.
+        </p>
+        <br>
+        <div class="row">
+            <div class="col-1 border">g</div>
+            <div class="col-2 border">h</div>
+            <div class="col-3 border">i</div>
+            <div class="col-6 border">j</div>
+        </div>
+        <br>
+        <p>
+            Que ocurre si ponemos mas columnas de las que son (12), entonces se iran
+            rellenando y el resto se pondran en una columna mas abajo como un salto de linea
+        </p>
+        <div class="row">
+            <div class="col-5 border">k</div>
+            <div class="col-7 border">l</div>
+            <div class="col-6 border">m</div>
+            <div class="col-6 border">n</div>
+        </div>
+        <br>
+        <h2>EJEMPLO</h2>
+        <br>
+        <div class="row">
+            <div class="col-12 col-md-6 col-lg-3 border">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odit incidunt omnis ex nulla earum tenetur
+                excepturi distinctio in iure? Quis aliquam rem corporis tenetur numquam, incidunt ducimus reiciendis
+                soluta enim.
+            </div>
+            <div class="col-12 col-md-6 col-lg-3 border">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odit incidunt omnis ex nulla earum tenetur
+                excepturi distinctio in iure? Quis aliquam rem corporis tenetur numquam, incidunt ducimus reiciendis
+                soluta enim.
+            </div>
+            <div class="col-12 col-md-6 col-lg-3 border">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odit incidunt omnis ex nulla earum tenetur
+                excepturi distinctio in iure? Quis aliquam rem corporis tenetur numquam, incidunt ducimus reiciendis
+                soluta enim.
+            </div>
+            <div class="col-12 col-md-6 col-lg-3 border">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odit incidunt omnis ex nulla earum tenetur
+                excepturi distinctio in iure? Quis aliquam rem corporis tenetur numquam, incidunt ducimus reiciendis
+                soluta enim.
+            </div>
+        </div>
+        <br>
+        <p>
+            Podemos usar las diferentes medidas de la dicumentacion (Responisve Container) para hacer que dependiendo 
+            de los pixeles las columnas se dividan en 3,4,6 etc. Como tenemos arriba con los Lorem los cuales estan 
+            divididos asi: class="col-12 col-md-6 col-lg-3 border". Siempre hay que especificar de menos a mas.
+            Hay otra manera de hacer lo mismo asi:
+        </p>
+        <br>
+        <h2>EJEMPLO</h2>
+        <br>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4">
+            <div class="col border">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odit incidunt omnis ex nulla earum tenetur
+                excepturi distinctio in iure? Quis aliquam rem corporis tenetur numquam, incidunt ducimus reiciendis
+                soluta enim.
+            </div>
+            <div class="col border">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odit incidunt omnis ex nulla earum tenetur
+                excepturi distinctio in iure? Quis aliquam rem corporis tenetur numquam, incidunt ducimus reiciendis
+                soluta enim.
+            </div>
+            <div class="col border">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odit incidunt omnis ex nulla earum tenetur
+                excepturi distinctio in iure? Quis aliquam rem corporis tenetur numquam, incidunt ducimus reiciendis
+                soluta enim.
+            </div>
+            <div class="col border">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odit incidunt omnis ex nulla earum tenetur
+                excepturi distinctio in iure? Quis aliquam rem corporis tenetur numquam, incidunt ducimus reiciendis
+                soluta enim.
+            </div>
+        </div>
+        <br>
+        <p>
+            De esta manera usamos mucho menos codigo class="row row-cols-1 row-cols-md-2 row-cols-lg-4" se pone en 
+            la clase padre donde va el row. 
+        </p>
+
+
+
+    </div>
+
+</body>
+
+</html>

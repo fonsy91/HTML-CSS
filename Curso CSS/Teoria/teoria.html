@@ -1,0 +1,805 @@
+
+<!--************************************  CURSO CSS  ************************************-->
+<!--
+LO QUE HAY QUE APRENDER:
+
+1: HTML
+2: CSS básico
+3: Modelo de caja (Box Model)
+4: Posicionamiento (absolute, relative, fixed, sticky)
+5: Flexbox y Grid
+6: Diseño Responsivo (Media Queries, Unidades flexibles (%, em, rem, vh, vw))
+7: Uso de Frameworks CSS (Bootstrap, Tailwind CSS, Materialize, Bulma, Foundation)
+8: Frameworks de logica (Angular, react ...) (necesario typescrypt y javascript)
+
+
+-->
+
+<!--
+***************************************** 2 CSS      *****************************************
+***************************************** SELECTORES *****************************************
+
+Se usan para aplicar estilos a elementos HTML específicos, hay diferentes tipos 
+de selectores son:
+
+1º: Selector de etiqueta (elemento como <p> ...): Aplica estilos a todas las etiquetas de un tipo específico.
+2º: Selector de clase (.): Estiliza cualquier elemento con una clase específica.
+3º: Selector de ID (#): Estiliza un solo elemento con un ID específico.
+4º: Selector Universal (*): Aplica estilos a todos los elementos.
+5º: Selectores combinados: Selecciona elementos dentro de otro.
+6º: Selectores de atributos: Aplica estilos a elementos con atributos específicos.
+7º: Selectores avanzados son:
+    7.1º: Pseudo-clase (:) → Se usa para estados especiales
+    7.2º: Pseudo-elemento (::) → Estiliza parte de un elemento
+
+***************************************** COLORES *****************************************
+
+Hay diferentes tipos de colores y sitios donde se pueden asignar son:
+
+1º: COLORS:
+2º: RGB: rgb ( rojo, verde , azul )
+3º: HEX: #ffffff
+4:º HSL: hsl(0, 100%, 50%)
+
+Puedes establecer colores de fondo para los elementos del HTML con la propiedad
+(background-color: <nombre-color>), tambien puedes dar color a un texto con (color: <nombre-color>),
+tambien puedes dar color a los bordes (border:2px solid Tomato) y de mas maneras por ejemplo: 
+
+<h1 style="background-color:rgb(255, 99, 71);">...</h1>
+<h1 style="background-color:#ff6347;">...</h1>
+<h1 style="background-color:hsl(9, 100%, 64%);">...</h1>
+<h1 style="background-color:rgba(255, 99, 71, 0.5);">...</h1>
+<h1 style="background-color:hsla(9, 100%, 64%, 0.5);">...</h1>
+
+***************************************** FONDOS ******************************************
+
+background-color: Asigna un color de fondo a un elemento
+background-image: Asigna una imagen de fondo a un elemento -> background-image: url("paper.gif");
+background-repeat: Repite una imagen tanto horizontal como verticalmente.
+background-attachment: Especifica si la imagen de fondo debe desplazarse o ser fija background-attachment: fixed; o scroll
+background-position: para posicionar una imagen dentro la pagina (arriba, abajo etc..)
+background (shorthand property): propiedad abreviada para establecer las propiedades de fondo:
+
+***************************************** BORDES ******************************************
+
+Las propiedades de borde CSS le permiten especificar el estilo, el ancho y el color del borde de un elemento. (border-style: <>)
+
+dotted- Define un borde punteado
+dashed- Define un borde discontinuo
+solid- Define un borde sólido
+double- Define un borde doble
+groove- Define un borde ranurado en 3D. El efecto depende del valor del color del borde.
+ridge- Define un borde estriado en 3D. El efecto depende del valor del color del borde.
+inset- Define un borde de inserción 3D. El efecto depende del valor del color del borde.
+outset- Define un borde inicial en 3D. El efecto depende del valor del color del borde.
+none- No define ninguna frontera
+hidden- Define un borde oculto
+
+El ancho se puede configurar como un tamaño específico (en px, pt, cm, em, etc.) o utilizando uno de los 
+tres valores predefinidos: fino, medio o grueso ( thin, medium, or thick).
+
+También hay propiedades para especificar cada uno de los bordes (superior, derecho, inferior e izquierdo):
+
+border-top-style: dotted;
+border-right-style: solid;
+border-bottom-style: dotted;
+border-left-style: solid;
+
+La border-radiuspropiedad se utiliza para agregar bordes redondeados a un elemento -> border-radius: 5px;
+
+***************************************** MARGINS (MARGENES) ******************************************
+
+Los márgenes se utilizan para crear espacio alrededor de los elementos, fuera de cualquier borde definido.
+
+margin-top          ->  margin-top: 100px;
+margin-right        ->  margin-right: 150px;
+margin-bottom       ->  margin-bottom: 100px;
+margin-left         ->  margin-left: 80px;
+
+Tambien puedes hacerlo de una manera abrebiada: 
+
+margin: 25px 50px 75px 100px;
+El margen superior es de 25 px.
+El margen derecho es de 50 px.
+El margen inferior es de 75 px.
+El margen izquierdo es de 100 px.
+
+margin: 25px 50px 75px;
+El margen superior es de 25 px.
+Los márgenes derecho e izquierdo son de 50 px.
+El margen inferior es de 75 px.
+
+margin: 25px 50px;
+Los márgenes superior e inferior son de 25 px.
+Los márgenes derecho e izquierdo son de 50 px.
+
+margin: 25px;
+Los cuatro márgenes son de 25 px.
+
+margin: auto;
+centrar horizontalmente el elemento dentro de su contenedor.
+
+Valor heredado: margin-left: inherit;
+Permite que el margen izquierdo del elemento <p class="ex1"> se herede del elemento padre (<div>):
+div {
+  border: 1px solid red;
+  margin-left: 100px;
+}
+
+p.ex1 {
+  margin-left: inherit;
+}
+
+***************************************** PADDING (RELLENO) ******************************************
+
+El relleno se utiliza para crear espacio alrededor del contenido de un elemento, dentro de cualquier borde definido.
+
+padding-top         -> padding-top: 50px;
+padding-right       -> padding-right: 30px;
+padding-bottom      -> padding-bottom: 50px;
+padding-left        -> padding-left: 80px;
+
+Para las abrebiaturas es igual que para margins
+
+***************************************** HEIGHT, WIDTH AND MAX-WIDTH (Altura, anchura y anchura máxima) ****
+
+height y width las propiedades se utilizan para establecer la altura y el ancho de un elemento. La max-width
+se utiliza para establecer el ancho máximo de un elemento.
+Las propiedades de altura y ancho no incluyen relleno, bordes ni márgenes. Establece la altura y el ancho del 
+área dentro del relleno, el borde y el margen del elemento. Se les puede asignar los siguientes valores:
+
+auto- Este es el valor predeterminado. El navegador calcula la altura y el ancho.
+length- Define la altura/ancho en px, cm, etc.
+%- Define la altura/ancho en porcentaje del bloque contenedor.
+initial- Establece la altura/ancho a su valor predeterminado
+inherit- La altura/ancho se heredará de su valor padre.
+
+***************************************** BOX MODEL (MODELO DE CAJAS) ******************************************
+
+El término "modelo de caja" se utiliza cuando hablamos de diseño y maquetación. Es básicamente un cuadro que envuelve
+cada elemento HTML. Está formado por: contenido, relleno, bordes y márgenes. La siguiente imagen ilustra el modelo de caja
+
+...............................Margin...............................
+.                                                                  .
+.   .......................... Border ..............................
+.   .                                                              .
+.   .   ...................... Padding ............................. 
+.   .   .                                                          . 
+.   .   .                     Content                              .   
+.   .   .                                                          .
+.   .   ............................................................ 
+.   .                                                              .
+.   ................................................................   
+.                                                                  .
+....................................................................
+
+Contenido (Content): el contenido del cuadro, donde aparecen el texto y las imágenes.
+Relleno (Padding): limpia un área alrededor del contenido. El relleno es transparente.
+Borde (Border): un borde que rodea el relleno y el contenido.
+Margen (Margin): limpia un área fuera del borde. El margen es transparente
+
+***************************************** OUTLINE (ESQUEMA CSS) ******************************************
+
+Se utiliza para dibujar una linea fuera del borde del elemento.
+
+outline-style
+outline-color
+outline-width
+outline-offset
+outline
+
+La outline-style propiedad especifica el estilo del contorno y puede tener uno de los siguientes valores:
+
+dotted- Define un contorno punteado
+dashed- Define un contorno discontinuo
+solid- Define un contorno sólido
+double- Define un contorno doble
+groove- Define un contorno ranurado en 3D
+ridge- Define un contorno estriado en 3D
+inset- Define un contorno de inserción 3D
+outset- Define un contorno inicial en 3D
+none- No define ningún contorno
+hidden- Define un contorno oculto
+
+Al igual que otras propiedades tambien se le puede dar un ancho y un color: outline-width: 4px; o outline-color: red;
+
+La outline-offset propiedad agrega espacio entre un contorno y el borde de un elemento. El espacio entre un 
+elemento y su contorno es transparente.
+
+
+***************************************** TEXTO **************************************************
+
+La alineacion y direccion de texto: 
+
+text-align
+text-align-last
+direction
+unicode-bidi
+vertical-align
+
+* La text-align propiedad se utiliza para establecer la alineación horizontal de un texto.
+Un texto puede estar alineado a la izquierda o a la derecha, centrado o justificado.
+
+text-align: center;   text-align: left;   text-align: right;
+text-align: justify;
+
+* La  propiedad se establece en "justificar", cada línea se estira para que cada línea tenga el mismo ancho y los 
+márgenes izquierdo y derecho sean rectos (como en revistas y periódicos):
+
+* La text-align-last propiedad especifica cómo alinear la última línea de un texto.
+
+text-align-last: right;   text-align-last: center;   text-align-last: justify;
+
+* La vertical-align propiedad establece la alineación vertical de un elemento:
+
+vertical-align: baseline;    -> por defecto
+vertical-align: text-top;    -> Arriba
+vertical-align: text-bottom; -> Abajo
+vertical-align: sub;         -> muy abajo
+vertical-align: super;       -> muy arriba   
+
+* Decoración de texto
+
+text-decoration-line            -> propiedad se utiliza para agregar una línea de decoración al texto.
+text-decoration-color           -> propiedad se utiliza para establecer el color de la línea de decoración.
+text-decoration-style           -> propiedad se utiliza para establecer el estilo de la línea de decoración.
+text-decoration-thickness       -> propiedad se utiliza para establecer el grosor de la línea de decoración.
+
+* Transformacion de texto
+
+La text-transform propiedad se utiliza para especificar letras mayúsculas y minúsculas en un texto.
+
+* Espacio de texto
+
+text-indent         -> propiedad se utiliza para especificar la sangría de la primera línea de un texto
+letter-spacing      -> propiedad se utiliza para especificar el espacio entre los caracteres de un texto
+line-height         -> propiedad se utiliza para especificar el espacio entre líneas
+word-spacing        -> propiedad se utiliza para especificar el espacio entre las palabras de un texto
+white-space         -> propiedad especifica cómo se manejan los espacios en blanco dentro de un elemento
+
+* Sombras de texto
+
+La text-shadow propiedad agrega sombra al texto
+
+***************************************** ICONOS **************************************************
+
+Para agregar iconos: 
+<script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+
+***************************************** ENLACES **************************************************
+
+a:link- un enlace normal, no visitado
+a:visited- un enlace que el usuario ha visitado
+a:hover- un enlace cuando el usuario pasa el ratón sobre él
+a:active- un enlace en el momento en que se hace clic en él
+
+***************************************** LISTAS **************************************************
+
+listas desordenadas (<ul>): los elementos de la lista están marcados con viñetas
+listas ordenadas (<ol>): los elementos de la lista están marcados con números o letras
+
+list-style-type: circle;
+list-style-type: square;
+list-style-type: upper-roman;
+list-style-type: lower-alpha;
+
+
+***************************************** TABLAS **************************************************
+Aunque para las tablas siempre queda mucho mejor usar frameworks pero de todas las maneras 
+aqui hay estilos de tablas con CSS: https://www.w3schools.com/css/css_table_style.asp
+
+***************************************** PROPIEDAD DISPLAY **************************************************
+
+La propiedad display se utiliza para especificar cómo se muestra un elemento en una página web.
+Cada elemento HTML tiene un valor de visualización predeterminado, según el tipo de elemento del que se trate. 
+El valor de visualización predeterminado para la mayoría de los elementos es block o inline.
+Se utiliza para cambiar el comportamiento de visualización predeterminado de los elementos HTML.
+
+* Un elemento a nivel de bloque (block) SIEMPRE comienza en una nueva línea y ocupa todo el ancho disponible 
+(se extiende hacia la izquierda y la derecha tanto como puede). Ejemplos de elementos a nivel de bloque:
+
+<div>
+<h1>-<h6>
+<p>
+<formulario>
+<encabezado>
+<pie de página>
+<sección>
+
+Un elemento en línea (inline) NO comienza en una nueva línea y solo ocupa el ancho necesario.
+Ejemplos de elementos en línea:
+
+<span>
+<a>
+<imagen>
+
+display: block;
+📌 Hace que un elemento ocupe todo el ancho disponible.
+📌 Los elementos block comienzan en una nueva línea.
+📌 Se puede modificar el tamaño con width y height.
+
+display: inline;
+📌 Hace que un elemento solo ocupe el espacio necesario.
+📌 No permite modificar width ni height.
+
+display: inline-block;
+📌 Se comporta como inline, pero permite definir width y height.
+
+display: none;
+📌 Oculta completamente el elemento (como si no existiera en el HTML).
+
+display: flex; (https://codepen.io/enxaneta/full/adLPwv/)
+📌 Convierte un contenedor en un "contenedor flexible".
+📌 Permite alinear elementos fácilmente con justify-content y align-items.
+
+display: grid;
+📌 Crea un sistema de cuadrícula avanzado.
+
+***************************************** LA PROPIEDAD POSITION **************************************************
+
+Especifica el tipo de método de posicionamiento utilizado para un elemento (estático, relativo, fijo, absoluto o fijo).
+
+static
+relative
+fixed
+absolute
+sticky
+
+* Los elementos posicionados estáticamente (static) no se ven afectados por las propiedades superior, inferior, izquierda y derecha.
+Un elemento con position: static;no está posicionado de ninguna manera especial; siempre se posiciona de acuerdo con 
+el flujo normal de la página.
+
+📌 Es el valor predeterminado de todos los elementos.
+📌 No permite modificar top, left, right o bottom.
+📌 El elemento se coloca en el flujo normal del documento.
+
+
+* Un elemento position: (relative) se posiciona en relación con su posición normal.
+Al configurar las propiedades superior, derecha, inferior e izquierda de un elemento posicionado de manera relativa, 
+este se ajustará para que no se encuentre en su posición normal. El resto del contenido no se ajustará para que 
+encaje en ningún espacio que deje el elemento.
+
+📌 El elemento se posiciona en relación con su posición original.
+📌 Puedes usar top, left, right, bottom para moverlo.
+
+
+* Un elemento position: (fixed) se posiciona en relación con la ventana gráfica, lo que significa que siempre permanece 
+en el mismo lugar, incluso si se hace un desplazamiento por la página. Las propiedades superior, derecha, inferior e 
+izquierda se utilizan para posicionar el elemento. Un elemento fijo no deja un espacio en la página donde normalmente 
+habría estado ubicado.
+
+📌 El elemento se mantiene fijo en la pantalla aunque hagas scroll.
+📌 Se posiciona con respecto al viewport (ventana del navegador).
+
+
+* Un elemento position: (absolute) se posiciona en relación con el ancestro posicionado más cercano 
+(en lugar de posicionarse en relación con la ventana gráfica, como fijo). Sin embargo; si un elemento posicionado absolutamente 
+no tiene ancestros posicionados, utiliza el cuerpo del documento y se mueve junto con el desplazamiento de la página.
+Nota: Los elementos posicionados absolutamente se eliminan del flujo normal y pueden superponerse a otros elementos.
+
+📌 El elemento se posiciona con respecto al primer ancestro relative, absolute o fixed.
+📌 Si no hay un ancestro con position, se posiciona en relación con <html>.
+📌 Elimina el elemento del flujo normal del documento.
+
+* Un elemento position: (sticky) se posiciona en función de la posición de desplazamiento del usuario.
+Un elemento fijo alterna entre relativey fixed, según la posición de desplazamiento. Se posiciona de manera relativa hasta que 
+se alcanza una posición de desplazamiento determinada en la ventana gráfica; luego, se "queda" en su lugar (como position:fixed).
+
+📌 El elemento actúa como relative hasta que se hace scroll y se "pega".
+📌 Se usa mucho en encabezados o barras flotantes.
+
+
+***************************************** LA PROPIEDAD Z-INDEX **************************************************
+
+La propiedad z-index controla la posición en el eje Z de los elementos, es decir, qué elemento se coloca 
+por encima o por debajo de otro.
+
+📌 Solo funciona en elementos con position: relative, absolute, fixed o sticky (no en static).
+
+
+z-index: auto; → Usa el valor por defecto del navegador.
+z-index: 0; → Sin prioridad, en la misma capa de los elementos sin z-index.
+z-index: 1, 2, 3...; → Cuanto mayor sea el número, más arriba estará el elemento.
+z-index: -1; → Coloca el elemento detrás de todo.
+
+🚨 Si un elemento tiene position: static, z-index no tendrá efecto.
+✔️ Para que z-index funcione, usa position: relative, absolute, fixed o sticky.
+
+
+***************************************** LA PROPIEDAD OVERFLOW **************************************************
+
+La propiedad overflow controla qué sucede cuando el contenido de un elemento se desborda de su contenedor.
+
+overflow: visible; (Por defecto)
+📌 El contenido se muestra aunque sobresalga del contenedor.
+📌 No se corta ni oculta.
+
+overflow: hidden;
+📌 El contenido que sobresale se corta y no se muestra.
+📌 Útil para esconder partes no deseadas de un elemento.
+
+overflow: scroll;
+📌 Aparecerán barras de desplazamiento (scroll) siempre, aunque no sea necesario.
+📌 Se puede hacer scroll para ver el contenido oculto.
+
+overflow: auto;
+📌 Añade barras de desplazamiento solo si es necesario.
+📌 Si el contenido cabe, no se muestran scrollbars.
+
+overflow-x y overflow-y
+📌 Se pueden controlar independientemente los ejes horizontal (x) y vertical (y).
+
+
+***************************************** FLOAT Y CLEAR **************************************************
+
+La propiedad float se utiliza para desplazar un elemento hacia la izquierda o derecha dentro de su contenedor, 
+permitiendo que los demás elementos fluyan a su alrededor.
+
+* Los elementos flotantes se sacan del flujo normal del documento, lo que significa que no ocupan espacio en el flujo de los elementos restantes.
+* Los elementos que siguen al flotante fluirán alrededor de él, como se ve en el ejemplo anterior, donde el texto fluye alrededor de la imagen.
+* float puede ser útil para crear diseños de múltiples columnas, como galerías de imágenes o diseños de barra lateral.
+
+Valores de float:
+
+left: El elemento flota hacia la izquierda de su contenedor.
+right: El elemento flota hacia la derecha de su contenedor.
+none: Elimina el flotado (valor por defecto).
+
+La propiedad clear se usa para evitar que un elemento flote al lado de un elemento flotante, obligándolo a comenzar 
+en una nueva línea. Es útil cuando quieres asegurarte de que los elementos no se superpongan o fluyan alrededor de un elemento flotante.
+
+* Los elementos con clear: both; se moverán debajo de cualquier flotante, asegurando que el contenido no quede al lado 
+de los elementos flotantes. En este caso, el div con clear: both se coloca debajo de los elementos flotantes.
+
+Valores de clear:
+
+left: El elemento no puede flotar a la izquierda del elemento flotante anterior.
+right: El elemento no puede flotar a la derecha del elemento flotante anterior.
+both: El elemento no puede flotar ni a la izquierda ni a la derecha del elemento flotante anterior.
+none: No se aplica restricción (valor por defecto).
+
+***************************************** DISPLAY: INLINE-BLOCK **************************************************
+
+La propiedad display: inline-block en CSS es una mezcla entre los valores inline y block. Permite que un elemento se 
+comporte como un elemento en línea (es decir, no rompa el flujo de la página y se coloque junto a otros elementos), 
+pero a la vez tiene las características de un elemento bloque (como poder definir su width, height, etc.).
+
+Características de inline-block:
+
+* Comportamiento en línea: Como los elementos inline, los elementos con display: inline-block se alinean horizontalmente 
+con otros elementos en línea. No causan saltos de línea.
+
+* Propiedades de bloque: Como los elementos block, se pueden establecer dimensiones (width, height) y usar 
+márgenes/paddings para darles espacio.
+
+¿Cuándo usar inline-block?
+
+* Para crear diseños horizontales donde los elementos tienen un comportamiento en línea, pero necesitas controlar sus 
+dimensiones (por ejemplo, botones, imágenes, tarjetas, etc.).
+* Si necesitas que los elementos se alineen uno al lado del otro, pero también quieres poder darles un tamaño fijo y 
+aplicar espaciado (márgenes o rellenos).
+
+🔹 Diferencia entre inline y inline-block
+
+inline: Los elementos no aceptan propiedades de bloque como width o height, y solo ocupan el espacio necesario.
+inline-block: Los elementos se comportan como elementos en línea, pero pueden tener width, height, y otras propiedades de bloque.
+
+***************************************** ALINEACION HORIZONTAL Y VERTICAL **************************************************
+
+1️⃣ Alineación Horizontal y Vertical con Flexbox
+Flexbox es probablemente la técnica más poderosa y moderna para alinear elementos tanto de forma horizontal como vertical.
+Es ampliamente compatible con todos los navegadores actuales.
+
+🔹 Explicación:
+justify-content: center;: Alinea el contenido horizontalmente al centro.
+align-items: center;: Alinea el contenido verticalmente al centro.
+height: 100vh;: El contenedor tiene una altura del 100% de la ventana, lo que asegura que se pueda ver el alineado centrado en toda la pantalla.
+
+
+2️⃣ Alineación con Grid
+CSS Grid es otra técnica poderosa que también permite alinear elementos fácilmente tanto horizontal como verticalmente.
+
+🔹 Explicación:
+place-items: center;: Esta propiedad es una forma abreviada que alinea el contenido horizontal y verticalmente al centro 
+dentro del contenedor grid.
+
+
+3️⃣ Alineación Vertical y Horizontal con position (Absolute)
+Si prefieres usar la propiedad position, puedes centrar un elemento de manera muy efectiva utilizando valores como 
+absolute o fixed junto con transformaciones.
+
+🔹 Explicación:
+position: absolute;: El elemento se posiciona en relación con el contenedor más cercano que tenga position: relative (en este caso, el contenedor).
+top: 50% y left: 50%: Posiciona el elemento al 50% de la altura y el ancho del contenedor.
+transform: translate(-50%, -50%): Ajusta el elemento para que se mueva hacia atrás en su propio ancho y altura, logrando que quede centrado.
+
+
+4️⃣ Alineación Horizontal con text-align
+Si solo necesitas alinear elementos en línea como texto, imágenes o elementos inline-block, puedes usar text-align.
+
+🔹 Explicación:
+text-align: center;: Alinea los elementos inline (como el div con display: inline-block) horizontalmente al centro.
+
+
+📌 Resumen Rápido:
+Flexbox: Usa display: flex; para centrar fácilmente elementos horizontal y verticalmente con justify-content: center; y align-items: center;.
+Grid: Usa display: grid; y place-items: center; para lograr la alineación centrada tanto horizontal como vertical.
+Position: Usa position: absolute; y transform: translate(-50%, -50%); para centrar un elemento dentro de su contenedor.
+Text-align: Usa text-align: center; para alinear horizontalmente elementos inline como texto o imágenes.
+
+***************************************** COMBINADORES **************************************************************
+
+Son operadores que se utilizan para seleccionar elementos específicos en función de su relación con otros elementos en el HTML. 
+Los combinadores permiten aplicar estilos solo a los elementos que cumplen ciertas condiciones dentro del DOM.
+
+Existen cuatro tipos de combinadores en CSS:
+
+Combinador de descendientes (space)
+Combinador de hijos directos (>)
+Combinador de hermanos adyacentes (+)
+Combinador de hermanos generales (~)
+
+1️⃣ Combinador de descendientes (space)
+Este es el combinador más común y se usa para seleccionar un elemento que es descendiente de otro, sin importar cuántos 
+niveles de anidamiento haya entre ellos.
+
+2️⃣ Combinador de hijos directos (>)
+Este combinador selecciona un elemento que es un hijo directo de otro. A diferencia del combinador de descendientes, 
+no se seleccionan los elementos que estén más profundos dentro de la jerarquía.
+
+3️⃣ Combinador de hermanos adyacentes (+)
+El combinador de hermanos adyacentes selecciona el primer hermano inmediato que sigue a un elemento específico.
+
+4️⃣ Combinador de hermanos generales (~)
+El combinador de hermanos generales selecciona todos los elementos hermanos que siguen a un elemento específico, 
+no solo el inmediato. Es decir, selecciona todos los elementos que están en el mismo nivel y siguen al elemento dado.
+
+***************************************** PSESUDO CLASES **************************************************************
+
+Las pseudo-clases en CSS son palabras clave que se agregan a los selectores para definir un estado específico de un elemento. 
+No seleccionan un elemento basado en su jerarquía o estructura, sino en su estado o interacción con el usuario, 
+entre otras características. Las pseudo-clases son muy útiles para aplicar estilos a un elemento cuando está en ciertos estados, 
+como cuando un usuario pasa el ratón por encima de un enlace, selecciona texto o cuando un formulario 
+tiene campos no válidos, entre otros.
+
+1️⃣ :hover
+Aplica estilos cuando un usuario pasa el ratón sobre un elemento.
+
+2️⃣ :active
+Aplica estilos cuando un elemento está activo (por ejemplo, cuando se hace clic en un enlace o botón).
+
+3️⃣ :focus
+Aplica estilos cuando un elemento recibe foco, es decir, cuando el usuario interactúa con él, por ejemplo, al hacer clic en un
+campo de texto o usar la tecla "Tab".
+
+4️⃣ :nth-child()
+Selecciona elementos que son el n-ésimo hijo de su padre. Puedes usarlo para aplicar estilos a un hijo específico según su posición.
+
+5️⃣ :nth-of-type()
+Similar a nth-child(), pero esta pseudo-clase selecciona el n-ésimo elemento de un tipo específico dentro de su contenedor.
+
+6️⃣ :first-child y :last-child
+Selecciona el primer o el último hijo de un contenedor.
+
+7️⃣ :not()
+Selecciona todos los elementos que no cumplen con un selector específico.
+
+
+***************************************** PSESUDO ELEMENTOS **************************************************************
+
+Los pseudo-elementos en CSS son muy similares a las pseudo-clases, pero en lugar de aplicar estilos a un estado de un elemento, 
+se utilizan para crear y estilizar contenido virtual que no está presente en el HTML. Los pseudo-elementos permiten modificar 
+partes específicas de un elemento, como antes o después de su contenido, o incluso estilizar su primer o último carácter, 
+sin tener que agregar elementos adicionales al DOM.
+
+1️⃣ ::before
+El pseudo-elemento ::before permite insertar contenido antes del contenido real de un elemento. Este contenido puede ser texto, 
+imágenes, iconos, etc., y se añade justo antes del contenido de ese elemento.
+
+2️⃣ ::after
+El pseudo-elemento ::after se utiliza para insertar contenido después del contenido real de un elemento. Al 
+igual que con ::before, puedes agregar texto, iconos o imágenes después del contenido del elemento.
+
+3️⃣ ::first-letter
+El pseudo-elemento ::first-letter selecciona el primer carácter de un bloque de texto y le permite aplicar estilos 
+especiales, como cambiar el tamaño de la fuente, el color, la fuente, entre otros.
+
+4️⃣ ::first-line
+El pseudo-elemento ::first-line selecciona la primera línea de un bloque de texto. Es útil para aplicar estilos a la 
+primera línea de un párrafo o cualquier bloque de texto, como cambiar el color, la tipografía o el espaciado.
+
+***************************************** OPACIDAD **************************************************************
+
+La opacidad (o transparencia) en CSS se refiere a la cantidad de transparencia que tiene un elemento, 
+lo que permite que el fondo o los elementos detrás de él sean parcialmente visibles. La propiedad que controla 
+esto en CSS es la propiedad opacity.
+
+Propiedad opacity:
+La propiedad opacity permite establecer el nivel de opacidad de un elemento. El valor de opacidad puede ser un número entre 0 y 1:
+
+* 0 significa completamente transparente (invisible).
+* 1 significa completamente opaco (sin transparencia).
+* Valores intermedios (por ejemplo, 0.5) hacen que el elemento sea semi-transparente.
+
+div {
+    opacity: 0.5;  /* 50% de opacidad, es decir, el elemento es semi-transparente */
+}
+
+***************************************** SELECTORES DE ATRIBUTOS **************************************************************
+
+Los selectores de atributos en CSS se utilizan para seleccionar elementos HTML en función de los atributos que poseen. 
+Este tipo de selectores es muy útil cuando quieres aplicar estilos a elementos que contienen ciertos atributos específicos, 
+sin necesidad de asignarles clases o identificadores.
+
+1. Selector de Atributo Simple ([atributo]):
+
+input[type] {
+    border: 2px solid blue;
+}
+
+🔹 Explicación: Este selector selecciona todos los elementos <input> que tienen el atributo type, sin importar su valor. 
+Se aplicará un borde azul a todos los campos de entrada.
+
+***************************************** UNIDADES CSS ********************************************************************
+
+En CSS, las unidades se utilizan para definir valores para propiedades como tamaño, márgenes, espaciado, anchos, altos, 
+entre otras. Existen diferentes tipos de unidades, y se agrupan en dos categorías principales: 
+unidades absolutas y unidades relativas.
+
+* Unidades Absolutas
+Las unidades absolutas tienen un valor fijo y no dependen de ningún otro factor, como el tamaño de la pantalla o el contenedor.
+
+1. px (píxeles)
+Descripción: Es la unidad más comúnmente utilizada en CSS. Representa un píxel en la pantalla y es una unidad fija.
+Uso común: width, height, font-size, margin, padding, etc.
+
+2. pt (puntos)
+Descripción: Un punto es igual a 1/72 de una pulgada.
+Uso común: Generalmente se utiliza en impresión, aunque es menos común en la web.
+
+3. cm (centímetros)
+Descripción: Es una unidad de longitud en centímetros. 1 centímetro es igual a 10 milímetros.
+Uso común: Usada principalmente en impresión.
+
+4. mm (milímetros)
+Descripción: Unidad de longitud que representa milímetros.
+Uso común: Usada en impresión, similar a cm.
+
+5. in (pulgadas)
+Descripción: 1 pulgada equivale a 2.54 centímetros. Esta unidad se utiliza para diseño de impresión.
+Uso común: Se usa en diseño gráfico y en medios impresos.
+
+6. pc (picas)
+Descripción: Una pica es igual a 12 puntos.
+Uso común: Se utiliza en la industria de la impresión, aunque es menos común en la web.
+
+* Unidades Relativas
+Las unidades relativas dependen del entorno o el contexto en el que se usan. Pueden adaptarse a otros elementos, como el contenedor, la pantalla o el texto.
+
+1. % (porcentaje)
+Descripción: Representa un valor relativo al elemento contenedor. El valor de la propiedad se calcula como un porcentaje del valor del contenedor.
+Uso común: Usada para definir anchos, márgenes, tamaños, y más.
+
+2. em
+Descripción: 1 em es igual al tamaño de la fuente del elemento actual. Es una unidad relativa que depende del tamaño de la fuente del contenedor.
+Uso común: Se utiliza para el tamaño de la fuente, márgenes, rellenos, y otros elementos que dependen del tamaño de la fuente.
+
+3. rem (root em)
+Descripción: Es similar a em, pero en este caso, rem siempre está basado en el tamaño de la fuente raíz (generalmente el tamaño de la fuente del <html>).
+Uso común: Se utiliza para crear un diseño más consistente, ya que no depende de la jerarquía de los elementos.
+
+4. vw (viewport width)
+Descripción: Un vw es un 1% del ancho de la ventana de visualización (viewport).
+Uso común: Se usa para diseñar layouts que dependan del ancho de la ventana, como en el caso de un diseño de ancho completo.
+
+5. vh (viewport height)
+Descripción: Un vh es un 1% de la altura de la ventana de visualización.
+Uso común: Utilizado para diseños que dependen de la altura de la pantalla.
+
+***************************************** ESPECIFICIDAD CSS ********************************************************************
+
+La especificidad de CSS es el proceso que utiliza el navegador para determinar qué reglas de estilo deben aplicarse a un 
+elemento cuando hay varias reglas en conflicto. La especificidad ayuda a resolver esta jerarquía de prioridades entre las reglas, 
+asegurando que las reglas más específicas tengan más peso que las reglas generales.
+
+***************************************** TRANSFORMACIONES CSS ********************************************************************
+
+La propiedad transform permite modificar visualmente un elemento en el espacio 2D o 3D sin alterar el flujo del documento.
+
+1. Translate (mover un elemento): Mueve un elemento en el eje X (horizontal) y/o Y (vertical).
+    - transform: translateX(50px); /* mueve 50px a la derecha */
+    - transform: translateY(30px); /* mueve 30px hacia abajo */
+    - transform: translate(50px, 30px); /* X=50px, Y=30px */
+
+2. Escalado (Agrandar o achicar): Cambia el tamaño del elemento.
+    - transform: scale(1.5); /* 1.5 veces su tamaño original */
+    - transform: scaleX(2); /* solo en horizontal */
+    - transform: scaleY(0.5); /* solo en vertical */
+
+3. Rotacion: Rota el elemento alrededor de su punto de origen
+    - transform: rotate(45deg); /* rota 45 grados */
+    - transform: rotate(-30deg); /* rota -30 grados */
+
+4. Inclinacion: Inclina el elemento en X o Y.
+    - transform: skewX(20deg); /* inclina horizontal */
+    - transform: skewY(15deg); /* inclina vertical */
+    - transform: skew(10deg, 20deg); /* X=10deg, Y=20deg */
+
+
+***************************************** FORMAS ANIMADAS ********************************************************************
+
+
+
+
+CURSO CSS:
+https://www.youtube.com/watch?v=9PiqO-9L2DA&list=PLMu9C465dSKCJqUBUbqpNfbveq-nATRtZ&index=3
+
+POSITION: 
+https://www.youtube.com/watch?v=_e0ddNlc0Y8
+
+TIPOGRAFICA:
+https://fonts.google.com/selection/embed
+
+ICONOS:
+https://fontawesome.com/icons/house?f=classic&s=solid
+
+Falta por hacer el 7,8,9,10,13,14,15,23,24,25 y 26
+
+
+
+-->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo de Selectores CSS</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+    <!-- Selector de ID -->
+    <h1 id="titulo">Este es un título</h1>
+
+    <!-- Selector de etiqueta -->
+    <p>Este es un párrafo normal.</p>
+
+    <!-- Selector de clase -->
+    <p class="destacado">Este párrafo tiene una clase aplicada.</p>
+
+    <!-- Selector de descendencia -->
+    <div>
+        <p>Este párrafo está dentro de un div (Selector de descendencia).</p>
+    </div>
+
+    <!-- Selector de hijo directo -->
+    <div>
+        <p>Este párrafo es un hijo directo de div (Selector de hijo directo).</p>
+        <section>
+            <p>Este párrafo NO es un hijo directo de div.</p>
+        </section>
+    </div>
+
+    <!-- Selector de atributos -->
+    <input type="text" placeholder="Escribe aquí...">
+    <input type="password" placeholder="Contraseña">
+
+    <!-- Selector de pseudo-clase -->
+    <p>Pasa el mouse sobre este <a href="#">enlace</a>.</p>
+
+    <!-- Selector de pseudo-elemento -->
+    <p>Este párrafo tiene un pseudo-elemento en la primera letra.</p>
+
+</body>
+</html>
+
+/* Selector de descendencia (aplica a <span> dentro de <p>) */
+p span {
+    color: green;
+}
+
+/* Selector de hijo directo (aplica solo a <a> dentro de <nav>, pero NO a otros <a> anidados) */
+nav > a {
+    text-decoration: none;
+}
