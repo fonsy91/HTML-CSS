@@ -528,12 +528,73 @@
          Una vez entendidos los casos anteriores, debemos atender a la propiedad align-content, que es un caso
          particular de align-items. Nos servirá cuando estemos tratando con un contenedor flex multilinea creado
          mediante flex-wrap. Los contenedores multilinea son un tipo de contenedor en el que, cuando los ítems no caben
-         en el ancho disponible, el eje principal se divide en múltiples líneas. De esta forma, align-content servirá 
+         en el ancho disponible, el eje principal se divide en múltiples líneas. De esta forma, align-content servirá
          para alinear cada una de las líneas del contenedor multilinea
       </p>
       <h4 class="text-primary mt-4">- ELEMENTOS FLEXIBLES EN CSS</h4>
+      <p class="ms-3 mt-4">
+         A excepción de la propiedad align-self vista en temas anteriores, todas las propiedades que hemos visto hasta
+         ahora se aplican sobre el elemento contenedor. Las siguientes propiedades, sin embargo, se aplican sobre los
+         elementos hijos.
+      </p>
+      <div class="mt-4">
+         <img class="img-fluid rounded w-75 h-50" src="../imagenes/flex3.PNG" alt="">
+      </div>
+      <h6 class="text-gray mt-4">- FLEX-BASIC</h6>
+      <p class="ms-3 mt-4">
+         En primer lugar, tenemos la propiedad flex-basis, que define el tamaño base o inicial por defecto de los ítems
+         antes de aplicarle repartir su espacio (le da tamaño a sus hijos). Se suele aplicar un tamaño específico
+         (unidades, porcentajes, etc...),
+         pero también se puede aplicar la palabra clave content que ajusta automáticamente el tamaño al contenido del
+         elemento. Este es el valor por defecto de la propiedad.
+      </p>
+      <h6 class="text-gray mt-4">- FLEX-GROW</h6>
+      <p class="ms-3 mt-4">
+         La propiedad flex-grow actúa en situaciones donde: Hay un flex-basis definido y Los ítems cubren el tamaño
+         total del contenedor flex padre.
+         La propiedad flex-grow indica el factor de crecimiento de los ítems en el caso de que no tengan un ancho o alto
+         específico.
+         Por omisión, todos los elementos tienen un flew-grow: 0 definido, de modo que no hay factor de crecimiento en
+         el elemento, y tendrá el tamaño definido por la propiedad flex-basis
+         Sin embargo, si colocamos un flex-grow: 1 al primer hijo (ejemplo anterior), este crecerá hasta que la suma de
+         todos los hijos ocupen el 100% del contenedor, mientras que el resto de hijos tendrá el tamaño base definido
+         por flex-basis.
+      </p>
+      <h6 class="text-gray mt-4">- FLEX-SHRINK</h6>
+      <p class="ms-3 mt-4">
+         Por otro lado, tenemos la propiedad flex-shrink que es la opuesta a la propiedad flex-grow. Mientras que la
+         anterior indica un factor de crecimiento, flex-shrink hace justo lo contrario: aplica un factor de
+         decrecimiento. La propiedad flex-shrink actúa en situaciones donde: Hay un flex-basis definido y
+         Los ítems no cubren el tamaño total del contenedor flex padre.
+         Ten en cuenta que las propiedades flex-grow, flex-shrink o incluso su atajo flex son animables, por lo que
+         podemos conseguir hermosos efectos de animación con fragmentos de código con muy poco código
+      </p>
+      <pre><code class="language-css">
+         // Esto es un contenedor basico con 3 items y cuando pasas el raton sobre uno de ellos
+         // o sobre el que pases entonces se expandira o cuando no pases se despandira.
+         
+         .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 150px;
+            gap: 5px;
+            background: grey;
+         }
 
+         .item {
+            flex: 0 1 15%;
+            padding: 20px;
+            background: black;
+            color: white;
+            transition: flex 0.5s;
+         }
 
+         .item:hover {
+            flex: 1 1 10%;
+            background: indigo;
+         }
+      </code></pre>
 
 
 
