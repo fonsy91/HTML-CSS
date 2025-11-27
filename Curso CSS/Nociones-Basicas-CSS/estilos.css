@@ -1,3 +1,25 @@
 * {
    box-sizing: border-box;
 }
+
+.grid {
+  display: grid;
+  grid-template-columns: 150px 300px;
+}
+
+.grid :nth-child(1) { background: blue }
+.grid :nth-child(2) { background: darkred }
+.grid :nth-child(3) { background: green }
+.grid :nth-child(4) { background: gold }
+
+
+.grid1 {
+  display: grid;
+  grid-template-columns: 150px 300px;
+  grid-template-rows: 50px 50px;
+}
+
+.grid1 :nth-child(1) { background: blue }
+.grid1 :nth-child(2) { background: darkred }
+.grid1 :nth-child(3) { background: green }
+.grid1 :nth-child(4) { background: gold }

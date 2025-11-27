@@ -595,10 +595,132 @@
             background: indigo;
          }
       </code></pre>
+      <h4 class="text-primary mt-4">- GRID CSS</h4>
+      <p class="ms-3">
+         Uno de los procesos más problematicos y frustrantes de CSS, sobre todo para novatos o principiantes, es el
+         proceso de colocar y distribuir los elementos a lo largo de una página. Mecanismos como posicionamiento, floats
+         o elementos en bloque o en línea, suelen ser insuficientes (o muy complejos) para crear un layout o estructuras
+         para páginas web actuales.
 
+         El sistema de elementos flexibles Flex es una gran mejora, sin embargo, está orientado a estructuras de una
+         sola dimensión, y puede ser laborioso crear estructuras más complejas, por lo que aún necesitamos algo más
+         potente para estructuras web de varias dimensiones rápidamente. Con el paso del tiempo, muchos frameworks CSS y
+         librerías comenzaron a utilizar un sistema basado en un grid donde se definía una cuadrícula, a la que era
+         posible darle tamaño, posición o colocación, cambiando el nombre de sus clases.
+      </p>
+      <div class="mt-4">
+         <img class="img-fluid rounded w-75 h-25" src="../imagenes/grid.PNG" alt="">
+      </div>
+      <ul class="mt-4">
+         <li>Contenedor: El elemento padre contenedor que definirá la cuadrícula o rejilla.</li>
+         <li>Ítem: Cada uno de los hijos que contiene la cuadrícula (elemento contenedor).</li>
+         <li>Celda (grid cell): Cada uno de los cuadritos (unidad mínima) de la cuadrícula.</li>
+         <li>Area (grid area): Región o conjunto de celdas de la cuadrícula.</li>
+         <li>Banda (grid track): Banda horizontal o vertical de celdas de la cuadrícula.</li>
+         <li>Línea (grid line): Separador horizontal o vertical de las celdas de la cuadrícula.</li>
+      </ul>
+      <pre><code class="language-html">
+         &lt;div class="grid"&gt;
+            &lt;div class="item item-1"&gt;Primera celda&lt;/div&gt;
+            &lt;div class="item item-2"&gt;Segunda celda&lt;/div&gt;
+            &lt;div class="item item-3"&gt;Tercera celda&lt;/div&gt;
+            &lt;div class="item item-4"&gt;Cuarta celda&lt;/div&gt;
+         &lt;/div&gt;
+      </code></pre>
+      <p class="ms-3">
+         Para activar la cuadrícula grid hay que utilizar sobre el elemento contenedor la propiedad display y
+         especificar uno de los dos valores que queramos utilizar: grid o inline-grid.
+      </p>
+      <div class="mt-4">
+         <img class="img-fluid rounded w-75 h-50" src="../imagenes/grid1.PNG" alt="">
+      </div>
+      <p class="ms-3 mt-4">
+         Este valor influye en como se comportará la cuadrícula con el contenido exterior. El primero de ellos permite
+         que la cuadrícula aparezca encima/debajo del contenido exterior (en bloque) y el segundo de ellos permite que
+         la cuadrícula aparezca a la izquierda/derecha (en línea) del contenido exterior (ojo, la cuadrícula entera, no
+         cada uno de sus ítems). <br><br>
+         Una vez elegido uno de estos dos valores, y establecida la propiedad display al elemento contenedor, hay varias
+         formas de configurar nuestra cuadrícula grid. Al igual que con Flex, muchas de las propiedades se aplican al
+         contenedor padre, sin embargo, existen algunas que se aplican sobre los elementos hijos. Las iremos viendo
+         todas detalladamente.
+      </p>
+      <h6 class="text-gray mt-4">- DEFINIR FILAS Y COLUMNAS</h6>
+      <p class="ms-3 mt-4">
+         En Grid CSS, la forma principal de definir una cuadrícula es indicar el tamaño de sus filas y sus columnas de
+         forma explícita. Para ello, sólo tenemos que usar las propiedades CSS grid-template-columns y
+         grid-template-rows:
+      </p>
+      <div class="mt-4">
+         <img class="img-fluid rounded w-75 h-50" src="../imagenes/grid2.PNG" alt="">
+      </div>
+      <h6 class="text-gray mt-4">- LA PROPIEDAD GRID-TEMPLATE-COLUMNS</h6>
+      <p class="ms-3 mt-4">
+         La propiedad grid-template-columns nos permite definir el tamaño de las columnas del grid o cuadricula. En este
+         caso definimos la primera columna de 150px de ancho, mientras que la segunda es de 300px de ancho:
+      </p>
+      <pre><code class="language-css">
+         .grid {
+            display: grid;
+            grid-template-columns: 150px 300px;  // define cuántas columnas tendrá tu grid y qué ancho tiene cada una.
+         }
 
+         .grid :nth-child(1) { background: blue }
+         .grid :nth-child(2) { background: darkred }
+         .grid :nth-child(3) { background: green }
+         .grid :nth-child(4) { background: gold }
+      </code></pre>
+      <div class="grid mt-4">
+         <div>Primera celda</div>
+         <div>Segunda celda</div>
+         <div>Tercera celda</div>
+         <div>Cuarta celda</div>
+      </div>
+      <p class="ms-3 mt-4">
+         Da igual el numero de items o divs que tengas dentro tu estableces al numero de columnas y ancho
+         con grid-template-columns, si haces mas columnas que items da igual pondra una columna vacia.
+      </p>
+      <h6 class="text-gray mt-4">- LA PROPIEDAD GRID-TEMPLATE-ROWS</h6>
+      <p class="ms-3 mt-4">
+         De la misma forma, grid-template-rows permite hacer la misma operación, pero con las filas en lugar de con las
+         columnas. Vamos a variar el ejemplo anterior:
+      </p>
+      <pre><code class="language-css">
+         .grid {
+            display: grid;
+            grid-template-columns: 50px 300px;
+            grid-template-rows: 50px 50px;      // define cuántas filas tendrá tu grid y qué alto tiene cada una.
+         }
 
+         .grid :nth-child(1) { background: blue }
+         .grid :nth-child(2) { background: darkred }
+         .grid :nth-child(3) { background: green }
+         .grid :nth-child(4) { background: gold }
+      </code></pre>
+      <div class="grid1 mt-4">
+         <div>Primera celda</div>
+         <div>Segunda celda</div>
+         <div>Tercera celda</div>
+         <div>Cuarta celda</div>
+      </div>
+      <p class="ms-3 mt-4">
+         Por defecto, la cuadrícula tiene todas sus celdas pegadas a sus celdas contiguas. Aunque sería posible darle un
+         margin a las celdas dentro del contenedor, existe una forma más apropiada: los huecos (gutters).
 
+         Para especificar los huecos (espacio entre celdas) podemos utilizar las propiedades column-gap y/o row-gap. En
+         ellas indicaremos el tamaño de dichos huecos:
+      </p>
+      <div class="mt-4">
+         <img class="img-fluid rounded w-75 h-50" src="../imagenes/grid3.PNG" alt="">
+      </div>
+      <p class="ms-3 mt-4">
+         El row-gap da hueco entre las filas pero de arriba abajo es decir vericalmente es decir si tienes dos filas 
+         una encima de otra el hueco o espacio se dara entre la de arriba y abajo y cuando es column-gap das el espacio 
+         entre las columnas horizontalmente es decir que si tienes una a la izquierda y otra a la derecha se separaran. <br><br>
+         Si tienes que hacer muchas columnas y hay un atajo para no repetri muchas veces los numero por ejemplo esto: <br><br>
+         grid-template-columns: 100px repeat(4, 50px) 200px; que equivale -> grid-template-columns: 100px 50px 50px 50px 50px 200px;
+         Es decir hazme una columna de 100px de ancho 4 de 50px y una ultima de 200 px.
+      </p>
+      <h4 class="text-primary mt-4">- ALINEAR Y CENTRAR CON GRID CSS</h4>
 
 
 
