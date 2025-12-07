@@ -15,6 +15,9 @@
    <!-- Google Fonts -->
    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
+   <!--Scripts JS-->
+   <script src="scripts.js"></script>
+
    <!-- Estilo interno -->
    <style>
       body {
@@ -721,7 +724,58 @@
          Es decir hazme una columna de 100px de ancho 4 de 50px y una ultima de 200 px.
       </p>
       <h4 class="text-primary mt-4">- ALINEAR Y CENTRAR CON GRID CSS</h4>
+      <div class="mt-4">
+         <img class="img-fluid rounded w-75 h-50" src="../imagenes/grid4.png" alt="">
+      </div>
+      <ul class="mt-4">
+         <li>Justify-items: Alinea los elementos (hijos) en horizontal (eje principal) dentro de cada celda.</li>
+         <li>align-items: Alinea los elementos (hijos) en vertical (eje principal) dentro de cada celda.</li>
+         <li>justify-content: Alinea contenido (la cuadricula) en horizontal (eje secundario) en el padre.</li>
+         <li>align-content: Alinea contenido (la cuadricula) en vertical (eje secundario) en el padre.</li>
+      </ul>
 
+      <p class="ms-3 mt-4">
+         Los hijos son A, B, C, D, E, F dentro del ejemplo siguiente, y la cuadricula es el grid
+         que rodea a cada letra, en el ejemplo no se puede ver pero si vas a f12 en desarrollo se 
+         podra ver la cuadricula y ver que hace cada boton realmente.
+      </p>
+
+      <div class="controls">
+         <!-- justify-items -->
+         <button onclick="apply('justify-items','start','Los items se alinean a la IZQUIERDA dentro de su celda.')">justify-items: start</button>
+         <button onclick="apply('justify-items','center','Los items se centran HORIZONTALMENTE dentro de su celda.')">justify-items: center</button>
+         <button onclick="apply('justify-items','end','Los items se alinean a la DERECHA dentro de su celda.')">justify-items: end</button>
+
+         <!-- align-items -->
+         <button onclick="apply('align-items','start','Los items se alinean ARRIBA dentro de su celda.')">align-items: start</button>
+         <button onclick="apply('align-items','center','Los items se centran VERTICALMENTE dentro de su celda.')">align-items: center</button>
+         <button onclick="apply('align-items','end','Los items se alinean ABAJO dentro de su celda.')">align-items: end</button>
+
+         <!-- justify-content -->
+         <button onclick="apply('justify-content','start','La CUADRÍCULA se mueve a la IZQUIERDA del contenedor.')">justify-content: start</button>
+         <button onclick="apply('justify-content','center','La CUADRÍCULA se centra HORIZONTALMENTE dentro del contenedor.')">justify-content: center</button>
+         <button onclick="apply('justify-content','end','La CUADRÍCULA se mueve a la DERECHA dentro del contenedor.')">justify-content: end</button>
+         <button onclick="apply('justify-content','space-around','La CUADRÍCULA deja espacios iguales alrededor de cada fila.')">justify-content: space-around</button>
+
+         <!-- align-content -->
+         <button onclick="apply('align-content','start','La CUADRÍCULA se alinea ARRIBA del contenedor.')">align-content: start</button>
+         <button onclick="apply('align-content','center','La CUADRÍCULA se centra VERTICALMENTE dentro del contenedor.')">align-content: center</button>
+         <button onclick="apply('align-content','end','La CUADRÍCULA se alinea ABAJO en el contenedor.')">align-content: end</button>
+         <button onclick="apply('align-content','space-between','La CUADRÍCULA reparte el espacio vertical entre filas.')">align-content: space-between</button>
+      </div>
+
+      <div class="grid-wrapper">
+         <div class="grid" id="gridBox">
+            <div class="item">A</div>
+            <div class="item">B</div>
+            <div class="item">C</div>
+            <div class="item">D</div>
+            <div class="item">E</div>
+            <div class="item">F</div>
+         </div>
+      </div>
+
+      <div id="info">Pulsa un botón para ver una explicación visual del comportamiento.</div>
 
 
 

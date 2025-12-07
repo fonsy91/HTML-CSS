@@ -23,3 +23,70 @@
 .grid1 :nth-child(2) { background: darkred }
 .grid1 :nth-child(3) { background: green }
 .grid1 :nth-child(4) { background: gold }
+
+/*ESSTILOS PARA GRID *******************************/
+.controls {
+  margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+button {
+  padding: 8px 14px;
+  border: none;
+  background: #007b00ff;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #0056b3;
+}
+
+/* Contenedor del grid */
+.grid-wrapper {
+  border: 3px solid #4caf50;  /* 🟩 área del grid */
+  padding: 10px;
+  background: #e8fce8;
+  width: 420px;
+  height: 320px;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+/* Grid en sí */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 90px);
+  grid-auto-rows: 60px;
+
+  width: 100%;
+  height: 100%;
+
+  background: #d0e7ff;  /* 🟦 celdas */
+  border: 2px solid #1a73e8;
+
+  gap: 6px;
+
+  transition: all .35s ease; /* Animación suave */
+}
+
+/* Items */
+.item {
+  border: 2px solid rgba(0,0,0,0.6);
+  background: #ffdaa6;
+  padding: 5px;
+  text-align: center;
+  transition: all .35s ease;
+}
+
+/* Pequeño texto explicativo */
+#info {
+  margin-top: 15px;
+  font-size: 16px;
+  padding: 10px;
+  background: #fafad2;
+  border-left: 4px solid #c9b300;
+}
