@@ -716,11 +716,14 @@
          <img class="img-fluid rounded w-75 h-50" src="../imagenes/grid3.PNG" alt="">
       </div>
       <p class="ms-3 mt-4">
-         El row-gap da hueco entre las filas pero de arriba abajo es decir vericalmente es decir si tienes dos filas 
-         una encima de otra el hueco o espacio se dara entre la de arriba y abajo y cuando es column-gap das el espacio 
-         entre las columnas horizontalmente es decir que si tienes una a la izquierda y otra a la derecha se separaran. <br><br>
-         Si tienes que hacer muchas columnas y hay un atajo para no repetri muchas veces los numero por ejemplo esto: <br><br>
-         grid-template-columns: 100px repeat(4, 50px) 200px; que equivale -> grid-template-columns: 100px 50px 50px 50px 50px 200px;
+         El row-gap da hueco entre las filas pero de arriba abajo es decir vericalmente es decir si tienes dos filas
+         una encima de otra el hueco o espacio se dara entre la de arriba y abajo y cuando es column-gap das el espacio
+         entre las columnas horizontalmente es decir que si tienes una a la izquierda y otra a la derecha se separaran.
+         <br><br>
+         Si tienes que hacer muchas columnas y hay un atajo para no repetri muchas veces los numero por ejemplo esto:
+         <br><br>
+         grid-template-columns: 100px repeat(4, 50px) 200px; que equivale -> grid-template-columns: 100px 50px 50px 50px
+         50px 200px;
          Es decir hazme una columna de 100px de ancho 4 de 50px y una ultima de 200 px.
       </p>
       <h4 class="text-primary mt-4">- ALINEAR Y CENTRAR CON GRID CSS</h4>
@@ -736,32 +739,57 @@
 
       <p class="ms-3 mt-4">
          Los hijos son A, B, C, D, E, F dentro del ejemplo siguiente, y la cuadricula es el grid
-         que rodea a cada letra, en el ejemplo no se puede ver pero si vas a f12 en desarrollo se 
+         que rodea a cada letra, en el ejemplo no se puede ver pero si vas a f12 en desarrollo se
          podra ver la cuadricula y ver que hace cada boton realmente.
       </p>
 
       <div class="controls">
          <!-- justify-items -->
-         <button onclick="apply('justify-items','start','Los items se alinean a la IZQUIERDA dentro de su celda.')">justify-items: start</button>
-         <button onclick="apply('justify-items','center','Los items se centran HORIZONTALMENTE dentro de su celda.')">justify-items: center</button>
-         <button onclick="apply('justify-items','end','Los items se alinean a la DERECHA dentro de su celda.')">justify-items: end</button>
+         <button
+            onclick="apply('justify-items','start','Los items se alinean a la IZQUIERDA dentro de su celda.')">justify-items:
+            start</button>
+         <button
+            onclick="apply('justify-items','center','Los items se centran HORIZONTALMENTE dentro de su celda.')">justify-items:
+            center</button>
+         <button
+            onclick="apply('justify-items','end','Los items se alinean a la DERECHA dentro de su celda.')">justify-items:
+            end</button>
 
          <!-- align-items -->
-         <button onclick="apply('align-items','start','Los items se alinean ARRIBA dentro de su celda.')">align-items: start</button>
-         <button onclick="apply('align-items','center','Los items se centran VERTICALMENTE dentro de su celda.')">align-items: center</button>
-         <button onclick="apply('align-items','end','Los items se alinean ABAJO dentro de su celda.')">align-items: end</button>
+         <button onclick="apply('align-items','start','Los items se alinean ARRIBA dentro de su celda.')">align-items:
+            start</button>
+         <button
+            onclick="apply('align-items','center','Los items se centran VERTICALMENTE dentro de su celda.')">align-items:
+            center</button>
+         <button onclick="apply('align-items','end','Los items se alinean ABAJO dentro de su celda.')">align-items:
+            end</button>
 
          <!-- justify-content -->
-         <button onclick="apply('justify-content','start','La CUADRÍCULA se mueve a la IZQUIERDA del contenedor.')">justify-content: start</button>
-         <button onclick="apply('justify-content','center','La CUADRÍCULA se centra HORIZONTALMENTE dentro del contenedor.')">justify-content: center</button>
-         <button onclick="apply('justify-content','end','La CUADRÍCULA se mueve a la DERECHA dentro del contenedor.')">justify-content: end</button>
-         <button onclick="apply('justify-content','space-around','La CUADRÍCULA deja espacios iguales alrededor de cada fila.')">justify-content: space-around</button>
+         <button
+            onclick="apply('justify-content','start','La CUADRÍCULA se mueve a la IZQUIERDA del contenedor.')">justify-content:
+            start</button>
+         <button
+            onclick="apply('justify-content','center','La CUADRÍCULA se centra HORIZONTALMENTE dentro del contenedor.')">justify-content:
+            center</button>
+         <button
+            onclick="apply('justify-content','end','La CUADRÍCULA se mueve a la DERECHA dentro del contenedor.')">justify-content:
+            end</button>
+         <button
+            onclick="apply('justify-content','space-around','La CUADRÍCULA deja espacios iguales alrededor de cada fila.')">justify-content:
+            space-around</button>
 
          <!-- align-content -->
-         <button onclick="apply('align-content','start','La CUADRÍCULA se alinea ARRIBA del contenedor.')">align-content: start</button>
-         <button onclick="apply('align-content','center','La CUADRÍCULA se centra VERTICALMENTE dentro del contenedor.')">align-content: center</button>
-         <button onclick="apply('align-content','end','La CUADRÍCULA se alinea ABAJO en el contenedor.')">align-content: end</button>
-         <button onclick="apply('align-content','space-between','La CUADRÍCULA reparte el espacio vertical entre filas.')">align-content: space-between</button>
+         <button
+            onclick="apply('align-content','start','La CUADRÍCULA se alinea ARRIBA del contenedor.')">align-content:
+            start</button>
+         <button
+            onclick="apply('align-content','center','La CUADRÍCULA se centra VERTICALMENTE dentro del contenedor.')">align-content:
+            center</button>
+         <button onclick="apply('align-content','end','La CUADRÍCULA se alinea ABAJO en el contenedor.')">align-content:
+            end</button>
+         <button
+            onclick="apply('align-content','space-between','La CUADRÍCULA reparte el espacio vertical entre filas.')">align-content:
+            space-between</button>
       </div>
 
       <div class="grid-wrapper">
@@ -784,10 +812,31 @@
       </div>
 
       <h4 class="text-primary mt-4">- GRID POR AREAS CSS</h4>
+      <p class="ms-3 mt-4">
+         Hasta ahora hemos visto como definir cuadrículas Grid CSS donde definimos sus filas y sus columnas a través de
+         propiedades como grid-template-rows y grid-template-columns. Sin embargo, no es la única forma de definir
+         cuadrículas en CSS. Si necesitamos un poco más de flexibilidad a la hora de definir un grid, podemos utilizar
+         una funcionalidad denominada Grid por áreas, que permite de forma casi gráfica y visual, definir mediante texto
+         la ubicación y forma que van a tener las celdas de nuestra cuadrícula. <br> <br>
+         Mediante los Grids por área es posible indicar el nombre y posición concreta de cada área de una cuadrícula.
+         Para ello utilizaremos la propiedad grid-template-areas en nuestro contenedor padre, donde debemos especificar
+         el orden de las áreas en la cuadrícula. Posteriormente, en cada ítem hijo, utilizamos la propiedad grid-area
+         para indicar el nombre del área del que se trata y que el navegador pueda identificarlas:
+      </p>
+      <div class="mt-4">
+         <img class="img-fluid rounded w-75 h-50" src="../imagenes/grid5.png" alt="">
+      </div>
+
+      <h4 class="text-primary mt-4">- CELDAS IRREGULARES EN GRID</h4>
+
+
+
+
+
+
 
 
    </div>
-
 </body>
 
 </html>
