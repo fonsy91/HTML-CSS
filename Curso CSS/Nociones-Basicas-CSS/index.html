@@ -1090,7 +1090,8 @@
 
          Dicho de otra forma: aunque el usuario haga scroll y se desplace en la página, el elemento con position: fixed
          seguirá en el mismo sitio posicionado. Esto es muy frecuente en banners de publicidad o menus que requieren ser
-         visibles en todo momento en la página. Nose ve porque esta comentado sino se quedaria una caja fija a la izquierda de 
+         visibles en todo momento en la página. Nose ve porque esta comentado sino se quedaria una caja fija a la
+         izquierda de
          la pantalla
       </p>
 
@@ -1122,6 +1123,25 @@
             top: 0;
          }
       </code></pre>
+
+      <h6 class="text-gray mt-4">- POSICIONAMIENTO STICKY</h6>
+      <p class="ms-3 mt-4">
+         El posicionamiento sticky se suele utilizar cuando queremos que un elemento se posicione en un lugar específico
+         de forma fija, exactamente como el posicionamiento fijo (fixed), pero sólo en un momento o a una altura
+         determinada.
+
+         La forma más sencilla de entender esto, es pensar en el clásico menú superior que al principio está oculto,
+         pero en un momento de nuestro scroll por la página se muestra y nos acompaña durante nuestra navegación para
+         tener los enlaces de navegación a mano (u otra razón). <br><br>
+
+         El elemento no se posiciona desde el principio, sino que mantiene su lugar en el HTML. En nuestro ejemplo, el
+         elemento no se visualiza inicialmente, hasta que haciendo scroll lo encontramos.
+
+         En ese momento, desde que el elemento llega a la parte superior y va a desaparecer debido al scroll, el
+         elemento «se pega» a la parte superior y permanece «sticky», acompañándonos hasta el final de la página o que
+         volvamos a subir el umbral donde lo encontramos, donde volvería a su ubicación original y dejaría de seguirnos.
+
+      </p>
 
 
 
