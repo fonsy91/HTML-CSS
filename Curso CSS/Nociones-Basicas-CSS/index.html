@@ -12,6 +12,9 @@
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
+   <!--Bootstrap Iconos-->
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
    <!-- Google Fonts -->
    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
@@ -828,8 +831,297 @@
       </div>
 
       <h4 class="text-primary mt-4">- CELDAS IRREGULARES EN GRID</h4>
+      <p class="ms-3 mt-4">
+         Mediante propiedades como grid-template-rows, grid-template-columns y/o grid-template-areas podemos definir
+         como será una cuadrícula desde su elemento contenedor padre, creando un grid de forma flexible, sencilla y
+         práctica.
+
+         Sin embargo, las cuadrículas que podemos definir tienen ciertos límites, sobre todo cuando queremos que una
+         celda de la cuadrícula tengan una distribución peculiar, y hagan que la cuadrícula sea irregular. En estos
+         casos, las siguientes propiedades, que se utilizan en los elementos hijos de la cuadrícula, probablemente te
+         vendrán bastante bien.
+      </p>
+      <div class="mt-4">
+         <img class="img-fluid rounded w-75 h-50" src="../imagenes/grid6.png" alt="">
+      </div>
+      <p class="ms-3 mt-4">
+         - Puedes simplificar haciendo: grid-column: 4 / 5; (start / end) <br>
+         - Puedes simplificar haciendo: grid-row: 4 / 5; (start / end) <br><br>
+
+         La cosa es primero dibujar en un papel la distribucion de tu pagina, formulario lo que sea,
+         ver cuantas filas y columnas vas a tener y que cosa vas a meter en cada cuadro de la grid y cuntos
+         cuadros va a ocupar. Vas a hacer un ejemplo de un formulario hecho con Grid.
+      </p>
+
+      <div class="container pb-5">
+         <form class="form-formulario" action="">
+
+            <input class="clase-input" type="text" id="nombreFormulario" placeholder="Nombre">
+            <input class="clase-input" type="text" id="ape1Formulario" placeholder="Apellido 1">
+
+            <div class="form-check vigentes">
+               <input class="form-check-input" type="checkbox" value="" id="flexCheckVigentes">
+               <label class="form-check-label" for="flexCheckVigentes">
+                  Vigentes
+               </label>
+            </div>
+            <div class="form-check caducadas">
+               <input class="form-check-input" type="checkbox" value="" id="flexCheckCaducadas">
+               <label class="form-check-label" for="flexCheckCaducadas">
+                  Caducadas
+               </label>
+            </div>
+
+            <button class="btn btn-primary" id="btnAceptar" type="submit"><i class="bi bi-1-circle"></i></button>
+            <button class="btn btn-primary" id="btnCancelar" type="submit"><i class="bi bi-2-circle"></i></button>
+
+            <input class="clase-input" type="email" id="emailFormulario" placeholder="tu@email.com">
+            <input class="clase-input" type="tel" id="telefonoFormulario" placeholder="+34 600 000 000">
+
+         </form>
+      </div>
+
+      <pre><code class="language-css">
+         /*FORMULARIO GRID*/
+         .form-formulario {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);;
+            grid-template-rows: auto auto;
+            gap: 10px;
+            border: solid 2px rgb(89, 148, 216);
+            border-radius: 5px;
+            padding: 20px;
+         }
+
+         #nombreFormulario {
+            grid-column: 1 / 2;
+            grid-row: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+         }
+
+         #ape1Formulario {
+            grid-column: 2 / 4;
+            grid-row: 1;
+         }
+
+         .vigentes {
+            grid-column:  4 / 5;
+            grid-row: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+         }
+
+         .caducadas {
+            grid-column:  5 / 6;
+            grid-row: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+         }
 
 
+         #btnAceptar {
+            grid-column:  6 / 7;
+            grid-row: 1;
+         }
+
+         #btnCancelar {
+            grid-column:  7 / 8;
+            grid-row: 1;
+         }
+
+         #emailFormulario {
+            grid-column:  1 / 4;
+            grid-row: 2;
+         }
+
+         #telefonoFormulario {
+            grid-column:  4 / 6;
+            grid-row: 2;
+         }
+
+         .clase-input {
+            width: 100%;             /* ocupan todo el ancho de su contenedor */
+            height: 30px;            /* altura uniforme para todos */
+            padding: 0 10px;         /* espacio interno */
+            box-sizing: border-box;  /* incluye padding y borde en el tamaño total */
+            font-size: 12px;         /* tamaño de texto consistente */
+            border: solid 0.5px rgb(145, 145, 145);  /* borde uniforme */
+            background: rgb(230, 230, 230);
+            border-radius: 4px;      /* bordes ligeramente redondeados */
+            outline: none;           /* elimina el borde de enfoque por defecto */
+         }
+      </code></pre>
+
+      <h4 class="text-primary mt-4">- POSICIONAMIENTOS CSS</h4>
+      <h6 class="text-gray mt-4">- LA PROPIEDAD POSITION</h6>
+      <p class="ms-3 mt-4">
+         Como aprendimos en el tema de la propiedad display, si tenemos varios elementos en línea (uno detrás de otro)
+         aparecerán colocados de izquierda hacia derecha, mientras que si son elementos en bloque se verán colocados
+         desde arriba hacia abajo. Estos elementos se pueden ir combinando y anidando (incluyendo unos dentro de otros),
+         construyendo así esquemas más y más complejos, y por consiguiente, más difíciles de controlar.
+
+         Sin embargo, existen mecanismos alternativos y complementarios de posicionamiento que se utilizan para realizar
+         acciones y casos muy concretos. Mediante la propiedad position podemos modificar la posición en donde aparecen
+         los diferentes elementos y su contenido, al margen de utilizar sistemas como flex o grid.
+      </p>
+
+      <div class="mt-4">
+         <img class="img-fluid rounded w-75 h-50" src="../imagenes/position1.PNG" alt="">
+      </div>
+
+      <p class="ms-3 mt-4">
+         Si utilizamos un modo de posicionamiento diferente al estático (absolute, fixed, sticky o relative), podemos
+         utilizar una serie de propiedades para modificar la posición de un elemento. Es importante tener en cuenta que
+         dichas propiedades solo tendrán efecto si no tenemos la propiedad position establecida a static. <br>
+         Estas propiedades, lo único que hacen es colocar o fijar el elemento en el punto concreto indicado, de modo que
+         si indicas left: 0 significa que quieres que el elemento esté colocado 0 píxeles desde la izquierda. Puede
+         contener valores negativos, invirtiendo la dirección.
+      </p>
+
+      <div class="mt-4">
+         <img class="img-fluid rounded w-75 h-50" src="../imagenes/position2.PNG" alt="">
+      </div>
+
+      <!--Ejemplo para pòsition-->
+      <div class="mt-4">
+         <div class="a"></div>
+         <div class="b"></div>
+      </div>
+
+      <ol>
+         <li>Hemos posicionado el elemento .b de forma relativa (ver más adelante).</li>
+         <li>Hemos movido el elemento desde arriba (top) 25px hacia arriba (negativo).</li>
+         <li>Hemos movido el elemento desde la izquierda (left) 25px hacia la derecha (positivo).</li>
+         <li>El elemento .b se posiciona por encima de .a, ya que está colocado después en el HTML.</li>
+      </ol>
+
+      <h6 class="text-gray mt-4">- PROFUNDIDAD Z-INDEX</h6>
+      <p class="ms-3 mt-4">
+         Es interesante conocer también la existencia de la propiedad z-index, que es una forma de indicar una distancia
+         en el eje Z, es decir, en el eje de profundidad. CSS establece un nivel de profundidad en el que está un
+         elemento sobre los demás. De esta forma, podemos hacer que un elemento se coloque encima o debajo de otro.
+      </p>
+
+      <div class="mt-4">
+         <img class="img-fluid rounded w-75 h-50" src="../imagenes/zIndex.PNG" alt="">
+      </div>
+
+      <h6 class="text-gray mt-4">- POSICIONAMIENTO RELATIVO</h6>
+      <p class="ms-3 mt-4">
+         Si utilizamos la palabra clave relative en la propiedad position activaremos el llamado posicionamiento
+         relativo, que es el más sencillo de todos. Simplemente, se basa en activar dicho posicionamiento y mover
+         ligeramente el elemento en cuestión. <br>
+         Al utilizar la propiedad position: relative, en este modo, los elementos se colocan exactamente igual que en el
+         posicionamiento estático (permanecen en la misma posición), pero dependiendo del valor de las propiedades top,
+         bottom, left, right o inset, variaremos ligeramente la posición del elemento.
+      </p>
+
+      <h6 class="text-gray mt-4">- POSICIONAMIENTO ABSOLUTO</h6>
+      <p class="ms-3 mt-4">
+         Tras entender como funciona el posicionamiento relativo, otro de los posicionamiento CSS más importantes es el
+         posicionamiento absoluto, que se consigue indicando la palabra clave absolute en la propiedad position.
+
+         Este tipo de posicionamiento es algo más complejo, ya que se utiliza para posicionar elementos en base a un
+         elemento padre contenedor. Sin embargo es muy potente, y de comprenderlo bien, podremos hacer cosas muy
+         complejas con muy poco código. <br>
+         Con el posicionamiento absoluto tenemos un mecanismo potentísimo para colocar elementos. Para ello, solo
+         tenemos que colocar el position: absolute al elemento que queremos posicionar. Este, lo que hará es buscar su
+         elemento contenedor padre y verificar si tiene un posicionamiento estático o no.
+
+         En el caso de que se trate de un posicionamiento no estático, utilizará este contenedor de marco de referencia,
+         posicionando nuestro elemento absolute.
+
+         En el caso de que se trate de un posicionamiento estático, continuará buscando, ahora con el siguiente
+         contenedor padre, así hasta llegar a uno que no sea estático o al llegar al elemento
+         body, que sería el último y el que utilizaría como marco de referencia.
+      </p>
+
+      <!--Ejemplo para absolute-->
+      <div class="contenedor-absolute mt-4">
+         <div class="middle">
+            <div class="elemento">Abs</div>
+         </div>
+      </div>
+
+      <p class="ms-3 mt-4">
+         El elemento al que le asignas una posicion absolute busca un padre que tenga una posicion realative (no static)
+         entonces lo toma como marco de referencia y la primera que encuentra se queda alli. En realidad
+         un elemento absolute se posiciona respecto al primer padre que tenga: relative | absolute | fixed | sticky
+         y ningún padre tiene position, entonces: se posiciona respecto al body (viewport)
+      </p>
+
+      <pre><code class="language-css">
+         .contenedor-absolute {
+            border: 5px solid indigo;
+            width: 600px;
+            height: 300px;
+            margin: 20px;
+         }
+
+         .middle {
+            border: 5px solid steelblue;
+            width: 300px;
+            height: 150px;
+            margin: 50px;
+            position: relative;
+         }
+
+         .elemento {
+            width: 50px;
+            height: 50px;
+            background: red;
+            position: absolute;
+            top: 0;
+            left: 0;
+         }
+      </code></pre>
+
+      <h6 class="text-gray mt-4">- POSICIONAMIENTO FIJO</h6>
+      <p class="ms-3 mt-4">
+         El posicionamiento fijo es hermano del posicionamiento absoluto con algunas ligeras diferencias. Funciona
+         exactamente igual, utilizando marcos de referencia, con la diferencia que el elemento se muestra en una
+         posición fija (respecto a la región visible del navegador) a medida que haces scroll o te mueves en la página.
+
+         Dicho de otra forma: aunque el usuario haga scroll y se desplace en la página, el elemento con position: fixed
+         seguirá en el mismo sitio posicionado. Esto es muy frecuente en banners de publicidad o menus que requieren ser
+         visibles en todo momento en la página. Nose ve porque esta comentado sino se quedaria una caja fija a la izquierda de 
+         la pantalla
+      </p>
+
+      <!--Ejemplo para fixed-->
+      <!-- <div class="contenedor-fixed mt-4">
+         <div class="element-fixed">Texto posicionado</div>
+      </div> -->
+
+      <pre><code class="language-html">
+         &lt;div class="contenedor-fixed mt-4"&gt;
+         &lt;div class="element-fixed"&gt;Texto posicionado&lt;/div&gt;
+         &lt;/div&gt;
+      </code></pre>
+
+      <pre><code class="language-css">
+         .contenedor-fixed {
+            font-size: 3rem;
+            background: grey;
+         }
+
+         .element-fixed {
+            background: black;
+            color: white;
+            font-size: 1.5rem;
+            padding: 25px;
+            width: 200px;
+            position: fixed;
+            right: 0;
+            top: 0;
+         }
+      </code></pre>
 
 
 
