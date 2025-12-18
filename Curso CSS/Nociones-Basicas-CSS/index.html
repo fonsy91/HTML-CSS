@@ -1140,8 +1140,70 @@
          En ese momento, desde que el elemento llega a la parte superior y va a desaparecer debido al scroll, el
          elemento «se pega» a la parte superior y permanece «sticky», acompañándonos hasta el final de la página o que
          volvamos a subir el umbral donde lo encontramos, donde volvería a su ubicación original y dejaría de seguirnos.
-
       </p>
+
+      <h4 class="text-primary mt-4">- RESPONSIVE WEB DESIGN</h4>
+      <h6 class="text-gray mt-4">- CSS MEDIA QUERIES</h6>
+      <p class="ms-3 mt-4">
+         Existe un concepto denominado media queries, mediante el cuál podemos hacer excepciones para que unos
+         determinados estilos de diseño sólo se apliquen si se cumplen una serie de condiciones, generalmente
+         relacionadas con el dispositivo o navegador mediante el cuál se está viendo la página.
+      </p>
+
+      <div class="mt-4">
+         <img class="img-fluid rounded w-75 h-50" src="../imagenes/query1.PNG" alt="">
+      </div>
+
+      <p class="ms-3 mt-4">
+         Aunque existen otras formas, hoy en día la forma preferida de escribir Media Queries es utilizando la modalidad
+         de rangos de condiciones (Media Query Range Syntax), mucho más versátiles que las sintaxis anteriores, y mucho
+         menos tediosas.
+      </p>
+
+      <pre><code class="language-css">
+         @media (width <= 550px) {
+            .container {
+               --color: indigo;
+            }
+         }
+
+         @media (width >= 750px) {
+            .container {
+               --color: green;
+            }
+         }
+      </code></pre>
+
+      <p class="ms-3 mt-4">
+         Observa que en el caso de que la ventana del navegador del dispositivo sea igual o más pequeña que 550px, se
+         verá el fondo de color lila, y en el caso de que sea mayor o igual que 750px se verá verde.
+
+         Si la ventana tuviera entre 551px y 749px, no se aplicaría ninguna media query (no cumplen las condiciones) y
+         se quedaría de color gris, que es el valor que tiene indicado por defecto. <br> <br>
+         En algunas ocasiones, queremos indicar que las reglas @media sólo se pongan en funcionamiento en determinados
+         tipos de dispositivos. Son los llamados tipos de medios, que pueden utilizarse en las condiciones de los media
+         queries. Existen los siguientes:
+      </p>
+
+      <div class="mt-4">
+         <img class="img-fluid rounded w-75 h-50" src="../imagenes/query2.PNG" alt="">
+      </div>
+
+      <pre><code class="language-css">
+         /* Pantallas menores de 600px */
+         @media screen and (width <= 600px) {
+            /* ... */
+         }
+
+         /* Previsualizaciones y formatos de impresión */
+         @media print {
+            /* ... */
+         }
+      </code></pre>
+
+      <h4 class="text-primary mt-4">- ESTILOS CON SCSS</h4>
+      <a href="https://www.youtube.com/watch?v=cRpmo58EE8A">Curso SCSS</a>
+
 
 
 
