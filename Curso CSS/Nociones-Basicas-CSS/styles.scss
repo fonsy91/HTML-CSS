@@ -1,0 +1,222 @@
+// Compilar SCSS para poder utilizarlo en nuestra pagina web
+// Instalacion: npm install -g sass
+// Compilacion: sass styles.scss styles.css
+// Compilacion continua es decir no hay que estar compilando cada vez que cambias algo: sass --watch styles.scss styles.css
+
+// 1. VARIABLES ******************************************************************
+// *******************************************************************************
+
+/* =========================
+   1️⃣ Variables de color
+   ========================= */
+$primary-color: blue;
+$color-primario: #3498db;
+$color-secundario: rgb(231, 76, 60);
+$color-transparente: rgba(0, 0, 0, 0.5);
+
+/* =========================
+   2️⃣ Variables numéricas
+   ========================= */
+$padding-base: 16px;
+$ancho-maximo: 1200px;
+$radio-borde: 8px;
+
+/* =========================
+   3️⃣ Variables de texto (strings)
+   ========================= */
+$fuente-principal: "Arial, sans-serif";
+$ruta-imagenes: "/assets/img";
+
+/* =========================
+   4️⃣ Variables booleanas
+   ========================= */
+$modo-oscuro: true;
+
+/* =========================
+   5️⃣ Variables de listas
+   ========================= */
+$espaciados: 5px 10px 20px 40px;
+$colores-tema: red, green, blue;
+
+
+
+// Uso de las variables
+div {
+   background-color: $primary-color;
+}
+
+// 2. ANIDAMIENTO ****************************************************************
+// *******************************************************************************
+
+// De una clase padre anidamos las etiquetas o clases que haya dentro y les damos estilos
+.clase-container {
+   h1 {
+      color: $primary-color;
+      background-color: aqua;
+   }
+}
+
+// 3. MIXIN **********************************************************************
+// *******************************************************************************
+// Sirve para escribir un bloque de codigo el cual va a recibir un parametro y 
+// le aplicara estilos a esa clase muy importante para reutilizar estilos.
+
+@mixin redondeo ($radius) {
+   border-radius: $radius;
+}
+
+// Usamos el mixin redondeo
+.container {
+   @include redondeo(20px);
+}
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// Usamos el mixin flex-center
+.card {
+  @include flex-center;
+}
+
+// 4. OPERACIONES ****************************************************************
+// *******************************************************************************
+
+p {
+   font-size: $padding-base * 0.8;
+}
+
+// 5. HERENCIA *******************************************************************
+// *******************************************************************************
+
+%general {
+   border: 2px solid black;
+   border-radius: 10px;
+}
+
+// clase que va a obtener la herencia (heredar)
+.clase-hereda {
+   @extend %general;
+   // y aqui otros estilos propios
+}
+
+// 6. CONDICIONALES **************************************************************
+// *******************************************************************************
+
+body {
+   @if $primary-color == red{
+      background-color: violet;
+   }@else {
+      background-color: #3498db;
+   }
+}
+
+// 7. IMPORTACIONES **************************************************************
+// *******************************************************************************
+@import 'nombre-archivo';
+
+
+// 8. OPERADOR & *****************************************************************
+// *******************************************************************************
+
+// El operador & en SCSS es MUY importante y se usa para referirse al selector padre.
+
+// Modificadores metodologia BEN
+
+/*
+<div class="card">
+  <h2 class="card__title">Título</h2>
+  <p class="card__text">Texto</p>
+</div>
+*/
+
+.card {
+  &__title {
+    font-size: 20px;
+  }
+
+  &__text {
+    color: gray;
+  }
+}
+
+// Ejemplo BEN completo
+/*
+<!-- Tarjeta normal -->
+<div class="card">
+  <h2 class="card__title">Título normal</h2>
+  <p class="card__content">Contenido de la tarjeta.</p>
+</div>
+
+<!-- Tarjeta con modificador del bloque -->
+<div class="card card--highlighted">
+  <h2 class="card__title">Título resaltado</h2>
+  <p class="card__content">Contenido de la tarjeta resaltada.</p>
+</div>
+
+<!-- Tarjeta con modificador del elemento -->
+<div class="card">
+  <h2 class="card__title card__title--large">Título grande</h2>
+  <p class="card__content">Contenido con título grande.</p>
+</div>
+*/
+
+/* Bloque principal */
+.card {
+  background: white;
+  padding: 20px;
+  border: 1px solid #ccc;
+  width: 200px;
+  margin: 10px;
+
+  /* Modificador del bloque */
+  &--highlighted {
+    background: yellow;
+    border-color: orange;
+  }
+
+  /* Elemento dentro del bloque */
+  &__title {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+
+    /* Modificador del elemento */
+    &--large {
+      font-size: 24px;
+      color: darkblue;
+    }
+  }
+
+  &__content {
+    font-size: 14px;
+    color: #333;
+  }
+}
+
+/*
+Qué pasa en la práctica
+
+.card → define la tarjeta básica.
+
+.card--highlighted → cambia todo el bloque (fondo y borde).
+
+.card__title → define solo el estilo del título interno.
+
+.card__title--large → modifica solo el título, no afecta el resto de la tarjeta.
+
+*/
+
+
+
+// Con clases
+.menu {
+  background: white;
+
+  &.activo {
+    background: black;
+    color: white;
+  }
+}
