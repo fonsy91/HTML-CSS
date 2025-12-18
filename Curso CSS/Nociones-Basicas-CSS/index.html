@@ -1204,7 +1204,146 @@
       <h4 class="text-primary mt-4">- ESTILOS CON SCSS</h4>
       <a href="https://www.youtube.com/watch?v=cRpmo58EE8A">Curso SCSS</a>
 
+      <pre><code class="language-css">
+         /* =========================
+         1️⃣ Variables de color
+         ========================= */
+         $primary-color: blue;
+         $color-primario: #3498db;
+         $color-secundario: rgb(231, 76, 60);
+         $color-transparente: rgba(0, 0, 0, 0.5);
 
+         /* =========================
+         2️⃣ Variables numéricas
+         ========================= */
+         $padding-base: 16px;
+         $ancho-maximo: 1200px;
+         $radio-borde: 8px;
+
+         // Uso de las variables
+         div {
+            background-color: $primary-color;
+         }
+
+         // 2. ANIDAMIENTO ****************************************************************
+         // *******************************************************************************
+
+         // De una clase padre anidamos las etiquetas o clases que haya dentro y les damos estilos
+         .clase-container {
+            h1 {
+               color: $primary-color;
+               background-color: aqua;
+            }
+         }
+
+         // 3. MIXIN **********************************************************************
+         // *******************************************************************************
+         // Sirve para escribir un bloque de codigo el cual va a recibir un parametro y 
+         // le aplicara estilos a esa clase muy importante para reutilizar estilos.
+
+         @mixin redondeo ($radius) {
+            border-radius: $radius;
+         }
+
+         // Usamos el mixin redondeo
+         .container {
+            @include redondeo(20px);
+         }
+
+         @mixin flex-center {
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         }
+
+         // Usamos el mixin flex-center
+         .card {
+         @include flex-center;
+         }
+
+         // 4. OPERACIONES ****************************************************************
+         // *******************************************************************************
+
+         p {
+            font-size: $padding-base * 0.8;
+         }
+
+         // 5. HERENCIA *******************************************************************
+         // *******************************************************************************
+
+         %general {
+            border: 2px solid black;
+            border-radius: 10px;
+         }
+
+         // clase que va a obtener la herencia (heredar)
+         .clase-hereda {
+            @extend %general;
+            // y aqui otros estilos propios
+         }
+
+         // 6. CONDICIONALES **************************************************************
+         // *******************************************************************************
+
+         body {
+            @if $primary-color == red{
+               background-color: violet;
+            }@else {
+               background-color: #3498db;
+            }
+         }
+
+         // 7. IMPORTACIONES **************************************************************
+         // *******************************************************************************
+         @import 'nombre-archivo';
+
+         // Ejemplo BEN completo
+         /* Bloque principal */
+         .card {
+            background: white;
+            padding: 20px;
+            border: 1px solid #ccc;
+            width: 200px;
+            margin: 10px;
+
+            /* Modificador del bloque */
+            &--highlighted {
+               background: yellow;
+               border-color: orange;
+            }
+
+            /* Elemento dentro del bloque */
+            &__title {
+               font-size: 16px;
+               font-weight: bold;
+               margin-bottom: 10px;
+
+               /* Modificador del elemento */
+               &--large {
+                  font-size: 24px;
+                  color: darkblue;
+               }
+            }
+
+            &__content {
+               font-size: 14px;
+               color: #333;
+            }
+         }
+
+         /*
+         Qué pasa en la práctica
+
+         .card → define la tarjeta básica.
+         .card--highlighted → cambia todo el bloque (fondo y borde).
+         .card__title → define solo el estilo del título interno.
+         .card__title--large → modifica solo el título, no afecta el resto de la tarjeta.
+
+         */
+
+
+
+      </code></pre>
 
 
 
